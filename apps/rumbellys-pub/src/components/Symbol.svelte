@@ -18,10 +18,9 @@
 	const props: Props = $props();
 	const context = getContext();
 	const symbolInfo = $derived(getSymbolInfo({ rawSymbol: props.rawSymbol, state: props.state }));
-	const isSprite = $derived(symbolInfo.type === 'sprite');
 </script>
 
-{#if isSprite}
+{#if symbolInfo.type === 'sprite'}
 	<SymbolSprite {symbolInfo} x={props.x} y={props.y} oncomplete={props.oncomplete} />
 {:else}
 	<SymbolSpine

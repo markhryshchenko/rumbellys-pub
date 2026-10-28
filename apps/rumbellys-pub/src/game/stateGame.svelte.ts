@@ -79,9 +79,15 @@ export const stateGame = $state({
 	scatterCounter: 0,
 });
 
+// portrait: reels at the top under the logo, the pub scene with Rumbelly below them
+const PORTRAIT_BOARD_Y = 330;
+
 const boardLayout = () => ({
 	x: stateLayoutDerived.mainLayout().width * 0.5,
-	y: stateLayoutDerived.mainLayout().height * 0.5,
+	y:
+		stateLayoutDerived.layoutType() === 'portrait'
+			? PORTRAIT_BOARD_Y
+			: stateLayoutDerived.mainLayout().height * 0.5,
 	anchor: { x: 0.5, y: 0.5 },
 	pivot: { x: BOARD_SIZES.width / 2, y: BOARD_SIZES.height / 2 },
 	...BOARD_SIZES,

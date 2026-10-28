@@ -11,8 +11,19 @@
 
 	const context = getContext();
 	const SPINE_SCALE = { width: 0.62, height: 0.66 };
-	const SPRITE_SCALE = { width: 1.25, height: 0.72 };
 	const POSITION_ADJUSTMENT = 1.01;
+	// wooden frame built by art/tools/build_scene.py (9-slice); its opening = board + 4%.
+	// Sizes in game units = image size / 2. Portrait gets a thinner frame (reels fill the width).
+	const FRAME = {
+		normal: { key: 'reelFrame', width: 765.5, height: 466 },
+		portrait: { key: 'reelFramePortrait', width: 676.5, height: 408 },
+	};
+	// planks a little bigger than the board, so the frame covers their edges
+	const REEL_BACKGROUND_OVERLAP = 1.06;
+
+	const frame = $derived(
+		context.stateLayoutDerived.layoutType() === 'portrait' ? FRAME.portrait : FRAME.normal,
+	);
 
 	type AnimationName = 'reelhouse_glow_start' | 'reelhouse_glow_idle' | 'reelhouse_glow_exit';
 
@@ -62,20 +73,21 @@
 	</SpineProvider>
 {/if}
 
+<!-- dark wood behind the reels -->
 <Sprite
-	key="frame_bg.png"
+	key="reelBackground"
 	anchor={0.5}
-	x={context.stateGameDerived.boardLayout().x * POSITION_ADJUSTMENT}
-	y={context.stateGameDerived.boardLayout().y * POSITION_ADJUSTMENT}
-	width={context.stateGameDerived.boardLayout().width * SPRITE_SCALE.width}
-	height={context.stateGameDerived.boardLayout().width * SPRITE_SCALE.height}
+	x={context.stateGameDerived.boardLayout().x}
+	y={context.stateGameDerived.boardLayout().y}
+	width={context.stateGameDerived.boardLayout().width * REEL_BACKGROUND_OVERLAP}
+	height={context.stateGameDerived.boardLayout().height * REEL_BACKGROUND_OVERLAP}
 />
 
 <Sprite
-	key="frame_edge.png"
+	key={frame.key}
 	anchor={0.5}
-	x={context.stateGameDerived.boardLayout().x * POSITION_ADJUSTMENT}
-	y={context.stateGameDerived.boardLayout().y * POSITION_ADJUSTMENT}
-	width={context.stateGameDerived.boardLayout().width * SPRITE_SCALE.width}
-	height={context.stateGameDerived.boardLayout().width * SPRITE_SCALE.height}
+	x={context.stateGameDerived.boardLayout().x}
+	y={context.stateGameDerived.boardLayout().y}
+	width={frame.width}
+	height={frame.height}
 />

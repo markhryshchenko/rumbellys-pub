@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Text, Rectangle } from 'pixi-svelte';
+	import { Text, Circle } from 'pixi-svelte';
 	import { stateBet } from 'state-shared';
 	import { WHITE } from 'constants-shared/colors';
 
-	import { UI_BASE_SIZE } from '../constants';
+	import { UI_BASE_SIZE, UI_COLORS } from '../constants';
 
 	const fontSizeMultiplier = $derived.by(() => {
 		if (stateBet.autoSpinsCounter === Infinity) return 3;
@@ -14,11 +14,13 @@
 </script>
 
 {#if stateBet.autoSpinsCounter > 0}
-	<Rectangle
+	<Circle
 		anchor={0.5}
-		width={UI_BASE_SIZE * 0.9}
-		height={UI_BASE_SIZE * 0.9}
-		borderRadius={50}
+		diameter={UI_BASE_SIZE * 0.8}
+		backgroundColor={UI_COLORS.fill}
+		backgroundAlpha={0.85}
+		borderColor={UI_COLORS.accent}
+		borderWidth={UI_BASE_SIZE * 0.024}
 	/>
 	<Text
 		anchor={0.5}

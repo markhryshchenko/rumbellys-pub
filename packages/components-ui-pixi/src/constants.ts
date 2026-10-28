@@ -4,6 +4,17 @@ export const UI_BASE_SIZE = 150;
 
 export const UI_BASE_FONT_SIZE = UI_BASE_SIZE * 0.3;
 
+export const UI_COLORS = {
+	fill: 0x000000,
+	fillAlpha: 0.45,
+	ring: 0xffffff,
+	icon: 0xffffff,
+	// hover ring, active icon (turbo / autoplay on)
+	accent: 0xffc83c,
+	// buy bonus button
+	bonusFill: 0xb3261e,
+};
+
 export const UI_TEXT_STYLES = {
 	labelStyle: {
 		fontSize: UI_BASE_FONT_SIZE,

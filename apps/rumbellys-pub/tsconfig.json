@@ -1,5 +1,5 @@
 {
 	"extends": "config-ts/base.json",
-	"include": ["."],
+	"include": [".", ".svelte-kit/ambient.d.ts", ".svelte-kit/non-ambient.d.ts"],
 	"exclude": ["dist", "build", "node_modules"]
 }

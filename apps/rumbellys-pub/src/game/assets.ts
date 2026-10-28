@@ -117,13 +117,29 @@ export default {
 			scale: 2,
 		},
 	},
-	reelsFrame: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/reelsFrame/reels_frame.json', import.meta.url).href,
+	reelFrame: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/reelsFrame/reel_frame.webp', import.meta.url).href,
+	},
+	reelFramePortrait: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/reelsFrame/reel_frame_portrait.webp', import.meta.url).href,
 	},
 	payFrame: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/payFrame/payFrame.png', import.meta.url).href,
+	},
+	reelBackground: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/reelsFrame/reel_bg.webp', import.meta.url).href,
+	},
+	buyBonusBanner: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/buyBonus/banner.webp', import.meta.url).href,
+	},
+	uiIcons: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/uiIcons/uiIcons.json', import.meta.url).href,
 	},
 	rumbelly: {
 		type: 'sprite',
@@ -193,22 +209,19 @@ export default {
 			scale: 2,
 		},
 	},
-	foregroundAnimation: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/foregroundAnimation/mm_bg.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/foregroundAnimation/mm_bg.json', import.meta.url).href,
-			scale: 2,
-		},
+	backgroundLandscape: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/background/bg_landscape.webp', import.meta.url).href,
 		preload: true,
 	},
-	foregroundFeatureAnimation: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/foregroundFeatureAnimation/mm_bg_feature.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/foregroundFeatureAnimation/mm_bg_feature.json', import.meta.url).href,
-			scale: 2,
-		},
+	backgroundPortrait: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/background/bg_portrait.webp', import.meta.url).href,
+		preload: true,
+	},
+	lanternGlow: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/background/glow.webp', import.meta.url).href,
 		preload: true,
 	},
 	tumble_multiplier: {

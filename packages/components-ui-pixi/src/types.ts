@@ -35,6 +35,9 @@ export type ButtonIcon =
 	| 'soundOff'
 	| 'menuExit';
 
+// frames "icon_<name>" in the game's uiIcons atlas
+export type IconName = ButtonIcon | 'spin' | 'stop' | 'drawer';
+
 export type LayoutUiProps = {
 	gameName: Snippet;
 	logo: Snippet;

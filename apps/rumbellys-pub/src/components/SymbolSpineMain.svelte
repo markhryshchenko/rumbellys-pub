@@ -2,11 +2,10 @@
 	import { SpineProvider, SpineTrack, type SpineTrackProps } from 'pixi-svelte';
 	import { stateBetDerived } from 'state-shared';
 
-	import { getSymbolInfo } from '../game/utils';
-	import { SYMBOL_SIZE } from '../game/constants';
+	import { SYMBOL_SIZE, type SpineSymbolInfo } from '../game/constants';
 
 	type Props = {
-		symbolInfo: ReturnType<typeof getSymbolInfo>;
+		symbolInfo: SpineSymbolInfo;
 		x?: number;
 		y?: number;
 		listener: SpineTrackProps['listener'];

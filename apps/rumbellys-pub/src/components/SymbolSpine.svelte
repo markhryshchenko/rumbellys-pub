@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { SpineProvider, SpineTrack, type SpineTrackProps } from 'pixi-svelte';
 
-	import { SYMBOL_SIZE } from '../game/constants';
-	import { getSymbolInfo } from '../game/utils';
+	import { SYMBOL_SIZE, type SpineSymbolInfo } from '../game/constants';
 	import SymbolSpineMain from './SymbolSpineMain.svelte';
 
 	type Props = {
-		symbolInfo: ReturnType<typeof getSymbolInfo>;
+		symbolInfo: SpineSymbolInfo;
 		x?: number;
 		y?: number;
 		listener: SpineTrackProps['listener'];

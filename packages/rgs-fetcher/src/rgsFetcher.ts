@@ -1,6 +1,13 @@
 import type { paths } from './schema';
 import { fetcher } from 'utils-fetcher';
 
+// Not every RGS path has a GET operation, so the response type is resolved conditionally.
+type GetJsonResponse<T extends keyof paths> = paths[T] extends {
+	get: { responses: { 200: { content: { 'application/json': infer R } } } };
+}
+	? R
+	: never;
+
 export const rgsFetcher = {
 	post: async function post<
 		T extends keyof paths,
@@ -22,7 +29,7 @@ export const rgsFetcher = {
 	},
 	get: async function get<
 		T extends keyof paths,
-		TResponse = paths[T]['get']['responses'][200]['content']['application/json'],
+		TResponse = GetJsonResponse<T>,
 	>(options: { url: T; rgsUrl: string }): Promise<TResponse> {
 		const response = await fetcher({
 			method: 'GET',

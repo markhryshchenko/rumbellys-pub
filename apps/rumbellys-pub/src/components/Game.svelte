@@ -27,9 +27,14 @@
 	import BellyMeter from './BellyMeter.svelte';
 	import Mascot from './Mascot.svelte';
 	import Transition from './Transition.svelte';
-	import I18nTest from './I18nTest.svelte';
 
 	const context = getContext();
+
+	const studioNamePosition = $derived(
+		context.stateLayoutDerived.layoutType() === 'portrait'
+			? { x: context.stateLayoutDerived.canvasSizes().width - REM, y: REM * 0.6, anchor: { x: 1, y: 0 } }
+			: { x: REM, y: context.stateLayoutDerived.canvasSizes().height - REM * 0.6, anchor: { x: 0, y: 1 } },
+	);
 
 	onMount(() => (context.stateLayout.showLoadingScreen = true));
 
@@ -74,20 +79,22 @@
 			{#snippet gameName()}
 				<UiGameName name="RUMBELLY'S PUB" />
 			{/snippet}
-			{#snippet logo()}
-				<Text
-					anchor={{ x: 1, y: 0 }}
-					text="ADD YOUR LOGO"
-					style={{
-						fontFamily: 'proxima-nova',
-						fontSize: REM * 1.5,
-						fontWeight: '600',
-						lineHeight: REM * 2,
-						fill: 0xffffff,
-					}}
-				/>
-			{/snippet}
+			{#snippet logo()}{/snippet}
 		</UI>
+
+		<!-- studio name: bottom left (like "PRAGMATIC PLAY"); top right in portrait, where the bet buttons take the bottom -->
+		<Text
+			{...studioNamePosition}
+			alpha={0.75}
+			text="TALUS PLAY"
+			style={{
+				fontFamily: 'proxima-nova',
+				fontSize: REM * 0.85,
+				fontWeight: '300',
+				letterSpacing: REM * 0.1,
+				fill: 0xffffff,
+			}}
+		/>
 		<Win />
 		<FreeSpinIntro />
 		{#if ['desktop', 'landscape'].includes(context.stateLayoutDerived.layoutType())}
@@ -95,8 +102,6 @@
 		{/if}
 		<FreeSpinOutro />
 		<Transition />
-
-		<I18nTest />
 	{/if}
 </App>
 

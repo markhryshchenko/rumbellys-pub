@@ -5,10 +5,11 @@ import type { Language } from 'state-shared';
 
 export type MessagesMap = Record<Language, Messages>;
 
-export const mergeMessagesMaps = (messagesMapList: MessagesMap[]) => {
+// Each source may cover only some languages (Engine requires English only; other languages fall back).
+export const mergeMessagesMaps = (messagesMapList: Partial<MessagesMap>[]): MessagesMap => {
 	const merged = messagesMapList
 		.filter(Boolean)
-		.reduce((acc, current) => _.merge(acc, current), {} as MessagesMap);
+		.reduce<MessagesMap>((acc, current) => _.merge(acc, current), {} as MessagesMap);
 
 	return merged;
 };

@@ -163,10 +163,23 @@ export const zIndexes = {
 
 // Rumbelly's Pub symbols come from the symbolsStatic atlas (built by art/tools/build_atlas.py).
 // Every state shows the static sprite until win/land animations are made.
-const sprite = (assetKey: string, size = 1) =>
-	({ type: 'sprite', assetKey, sizeRatios: { width: size, height: size } }) as const;
+type SizeRatios = { width: number; height: number };
+export type SpriteSymbolInfo = { type: 'sprite'; assetKey: string; sizeRatios: SizeRatios };
+export type SpineSymbolInfo = {
+	type: 'spine';
+	assetKey: string;
+	animationName: string;
+	sizeRatios: SizeRatios;
+};
+export type SymbolInfo = SpriteSymbolInfo | SpineSymbolInfo;
 
-const allStates = <T>(info: T) => ({
+const sprite = (assetKey: string, size = 1): SymbolInfo => ({
+	type: 'sprite',
+	assetKey,
+	sizeRatios: { width: size, height: size },
+});
+
+const allStates = (info: SymbolInfo) => ({
 	explosion: info,
 	win: info,
 	postWinStatic: info,

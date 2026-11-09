@@ -2,7 +2,14 @@
 	import { onMount, type Snippet } from 'svelte';
 
 	import { requestAuthenticate, requestReplay } from 'rgs-requests';
-	import { stateUrlDerived, stateBet, stateConfig, stateModal, stateUi } from 'state-shared';
+	import {
+		stateUrlDerived,
+		stateBet,
+		stateConfig,
+		stateModal,
+		stateUi,
+		stateReplay,
+	} from 'state-shared';
 	import { API_AMOUNT_MULTIPLIER, MOST_USED_BET_INDEXES } from 'constants-shared/bet';
 
 	type Props = { children: Snippet };
@@ -106,27 +113,44 @@
 		}
 	};
 
+	// Bet replay: no session, no wallet calls. currency / amount / lang are optional and may be invalid.
 	const handleReplay = async () => {
 		stateBet.betAmount = (stateUrlDerived.amount() / API_AMOUNT_MULTIPLIER) || 0;
 		stateBet.wageredBetAmount = (stateUrlDerived.amount() / API_AMOUNT_MULTIPLIER) || 0;
 		stateBet.activeBetModeKey = stateUrlDerived.mode();
+		if (isKnownCurrency(stateUrlDerived.currency())) stateBet.currency = stateUrlDerived.currency();
 
-		const data = await requestReplay({
-			rgsUrl: stateUrlDerived.rgsUrl(),
-			game: stateUrlDerived.game(),
-			mode: stateUrlDerived.mode(),
-			version: stateUrlDerived.version(),
-			event: stateUrlDerived.event(),
-		});
-
-		if(data) {
-			// @ts-ignore
-			stateBet.betToResume = {
-				...data,
-				event: '0',
-				active: true,
+		try {
+			// unknown game/version/mode/event returns a plain 404 with no JSON body, so .json() throws
+			const data = (await requestReplay({
+				rgsUrl: stateUrlDerived.rgsUrl(),
+				game: stateUrlDerived.game(),
 				mode: stateUrlDerived.mode(),
-			};
+				version: stateUrlDerived.version(),
+				event: stateUrlDerived.event(),
+			})) as { payoutMultiplier?: number; costMultiplier?: number; state?: unknown[] } | undefined;
+
+			if (!data?.state?.length) throw { error: 'ERR_REPLAY', message: 'Replay data is empty' };
+
+			stateReplay.round = { ...data, event: '0', active: true, mode: stateUrlDerived.mode() };
+			stateReplay.costMultiplier = data.costMultiplier ?? 1;
+			stateReplay.payoutMultiplier = data.payoutMultiplier ?? 0;
+			stateReplay.status = 'ready';
+		} catch (error) {
+			console.error(error);
+			stateReplay.status = 'error';
+			stateModal.modal = { name: 'error', error };
+		}
+	};
+
+	const isKnownCurrency = (code: string) => {
+		if (!code) return false;
+		if (['XGC', 'XSC', 'XEC'].includes(code)) return true;
+		try {
+			new Intl.NumberFormat('en', { style: 'currency', currency: code });
+			return true;
+		} catch {
+			return false;
 		}
 	};
 

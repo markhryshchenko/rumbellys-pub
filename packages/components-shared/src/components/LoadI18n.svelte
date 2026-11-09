@@ -6,6 +6,7 @@
 	import { stateI18nDerived } from 'state-shared';
 
 	import { onMount, type Snippet } from 'svelte';
+	import type { Messages } from '@lingui/core';
 
 	import { stateUrlDerived, type Language } from 'state-shared';
 	import type { MessagesMap } from 'utils-shared/i18n';
@@ -14,31 +15,33 @@
 		debug?: boolean;
 		children: Snippet;
 		messagesMap: MessagesMap;
+		// social casino (?social=true): English only, with restricted gambling words replaced
+		socialMessages?: Messages;
 	};
 
 	const props: Props = $props();
 
 	let loaded = $state(false);
 
-	const loadMessages = (lang: Language) => {
+	const pickLanguage = (): { lang: Language; messages: Messages } => {
+		if (stateUrlDerived.social()) {
+			return { lang: 'en', messages: { ...props.messagesMap.en, ...props.socialMessages } };
+		}
+		const lang = stateUrlDerived.lang();
 		const messages = props.messagesMap[lang];
-		if (props.debug) console.log({ messages });
-		return messages;
+		// unknown or empty `lang` falls back to English
+		if (!messages) return { lang: 'en', messages: props.messagesMap.en ?? {} };
+		return { lang, messages };
 	};
 
 	onMount(() => {
 		try {
-			const messages = loadMessages(stateUrlDerived.lang());
-			stateI18nDerived.init(stateUrlDerived.lang(), messages);
+			const { lang, messages } = pickLanguage();
+			if (props.debug) console.log({ lang, messages });
+			stateI18nDerived.init(lang, messages);
 		} catch (error) {
-			console.error("Loading fallback locale 'en' because of error", error);
-			try {
-				const messages = loadMessages('en');
-				stateI18nDerived.init('en', messages);
-			} catch (error) {
-				console.error("Loading fallback locale 'en' without any messages because of error", error);
-				stateI18nDerived.init('en', {});
-			}
+			console.error("Loading fallback locale 'en' without any messages because of error", error);
+			stateI18nDerived.init('en', {});
 		}
 		loaded = true;
 	});

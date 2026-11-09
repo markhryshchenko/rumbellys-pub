@@ -1,0 +1,975 @@
+{
+ "frames": {
+  "parrot_00": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_01": {
+   "frame": {
+    "x": 188,
+    "y": 2,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_02": {
+   "frame": {
+    "x": 374,
+    "y": 2,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_03": {
+   "frame": {
+    "x": 560,
+    "y": 2,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_04": {
+   "frame": {
+    "x": 746,
+    "y": 2,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_05": {
+   "frame": {
+    "x": 932,
+    "y": 2,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_06": {
+   "frame": {
+    "x": 1118,
+    "y": 2,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_07": {
+   "frame": {
+    "x": 2,
+    "y": 264,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_08": {
+   "frame": {
+    "x": 188,
+    "y": 264,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_09": {
+   "frame": {
+    "x": 374,
+    "y": 264,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_10": {
+   "frame": {
+    "x": 560,
+    "y": 264,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_11": {
+   "frame": {
+    "x": 746,
+    "y": 264,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_12": {
+   "frame": {
+    "x": 932,
+    "y": 264,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_13": {
+   "frame": {
+    "x": 1118,
+    "y": 264,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_14": {
+   "frame": {
+    "x": 2,
+    "y": 526,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_15": {
+   "frame": {
+    "x": 188,
+    "y": 526,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_16": {
+   "frame": {
+    "x": 374,
+    "y": 526,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_17": {
+   "frame": {
+    "x": 560,
+    "y": 526,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_18": {
+   "frame": {
+    "x": 746,
+    "y": 526,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_19": {
+   "frame": {
+    "x": 932,
+    "y": 526,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_20": {
+   "frame": {
+    "x": 1118,
+    "y": 526,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_21": {
+   "frame": {
+    "x": 2,
+    "y": 788,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_22": {
+   "frame": {
+    "x": 188,
+    "y": 788,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_23": {
+   "frame": {
+    "x": 374,
+    "y": 788,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_24": {
+   "frame": {
+    "x": 560,
+    "y": 788,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_25": {
+   "frame": {
+    "x": 746,
+    "y": 788,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_26": {
+   "frame": {
+    "x": 932,
+    "y": 788,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_27": {
+   "frame": {
+    "x": 1118,
+    "y": 788,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_28": {
+   "frame": {
+    "x": 2,
+    "y": 1050,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_29": {
+   "frame": {
+    "x": 188,
+    "y": 1050,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_30": {
+   "frame": {
+    "x": 374,
+    "y": 1050,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_31": {
+   "frame": {
+    "x": 560,
+    "y": 1050,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_32": {
+   "frame": {
+    "x": 746,
+    "y": 1050,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_33": {
+   "frame": {
+    "x": 932,
+    "y": 1050,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_34": {
+   "frame": {
+    "x": 1118,
+    "y": 1050,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_35": {
+   "frame": {
+    "x": 2,
+    "y": 1312,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_36": {
+   "frame": {
+    "x": 188,
+    "y": 1312,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_37": {
+   "frame": {
+    "x": 374,
+    "y": 1312,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_38": {
+   "frame": {
+    "x": 560,
+    "y": 1312,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_39": {
+   "frame": {
+    "x": 746,
+    "y": 1312,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_40": {
+   "frame": {
+    "x": 932,
+    "y": 1312,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_41": {
+   "frame": {
+    "x": 1118,
+    "y": 1312,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_42": {
+   "frame": {
+    "x": 2,
+    "y": 1574,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_43": {
+   "frame": {
+    "x": 188,
+    "y": 1574,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_44": {
+   "frame": {
+    "x": 374,
+    "y": 1574,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_45": {
+   "frame": {
+    "x": 560,
+    "y": 1574,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_46": {
+   "frame": {
+    "x": 746,
+    "y": 1574,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  },
+  "parrot_47": {
+   "frame": {
+    "x": 932,
+    "y": 1574,
+    "w": 184,
+    "h": 260
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 184,
+    "h": 260
+   },
+   "sourceSize": {
+    "w": 184,
+    "h": 260
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/build_scene.py",
+  "image": "parrot.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 1304,
+   "h": 1836
+  },
+  "scale": "1",
+  "fps": 9.6
+ }
+}

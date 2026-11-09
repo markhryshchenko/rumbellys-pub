@@ -1,10 +1,23 @@
 import { fromPromise } from 'xstate';
 
 import { API_AMOUNT_MULTIPLIER } from 'constants-shared/bet';
-import { stateBet, stateUrlDerived, stateModal } from 'state-shared';
+import { stateBet, stateBetDerived, stateUrlDerived, stateModal } from 'state-shared';
 import { requestBet, requestEndRound } from 'rgs-requests';
 
 import type { BaseBet } from './types';
+
+// Engine: never send /play when the balance cannot cover the bet (incl. the bought mode's cost).
+const checkBalanceForBet = ({ onError }: { onError: () => void }) => {
+	const mode = stateBetDerived.activeBetMode();
+	const cost =
+		mode?.type === 'buy' ? stateBet.betAmount * mode.costMultiplier : stateBetDerived.betCost();
+	if (cost > 0 && cost <= stateBet.balanceAmount) return;
+
+	onError();
+	stateBet.autoSpinsCounter = 0;
+	stateModal.modal = { name: 'autoSpinMessage', message: 'insufficientFunds' };
+	throw Error('Insufficient funds for this bet');
+};
 
 const handleRequestBet = async ({ onError }: { onError: () => void }) => {
 	try {
@@ -138,6 +151,7 @@ function createPrimaryMachines<TBet extends BaseBet>(options: Options<TBet>) {
 
 	// newGame
 	const newGame = fromPromise(async () => {
+		checkBalanceForBet({ onError: onNewGameError });
 		await onNewGameStart();
 
 		const data = await handleRequestBet({ onError: onNewGameError });

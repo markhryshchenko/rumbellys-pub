@@ -1,7 +1,9 @@
 import type { LinguiConfig } from "@lingui/conf";
 
+// all languages supported by the Engine RGS (`lang` launch parameter)
 export const locales = [
   "ar",
+  "da",
   "de",
   "en",
   "es",

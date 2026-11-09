@@ -1,11 +1,14 @@
 <script lang="ts">
-	import { stateBet } from 'state-shared';
+	import { stateBet, stateUrlDerived } from 'state-shared';
 	import { getContext } from '../game/context';
 	import { onMount } from 'svelte';
 
 	const context = getContext();
 
 	onMount(() => {
+		// in replay mode the round starts from the Play button (ReplayControls)
+		if (stateUrlDerived.replay()) return;
+
 		if (stateBet.betToResume?.active && stateBet.betToResume.mode) {
 			stateBet.activeBetModeKey = stateBet.betToResume.mode;
 		}

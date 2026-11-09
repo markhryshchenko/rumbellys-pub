@@ -10,6 +10,8 @@
 
 	type Props = {
 		children: Snippet;
+		// the game's paytable; without it a placeholder is shown
+		content?: Snippet;
 	};
 
 	const props: Props = $props();
@@ -19,7 +21,11 @@
 	<Popup zIndex={zIndex.modal} onclose={() => (stateModal.modal = null)}>
 		<BaseContent maxWidth="100%">
 			<BaseScrollable type="column">
-				<span>ADD YOUR PAY TABLE</span>
+				{#if props.content}
+					{@render props.content()}
+				{:else}
+					<span>ADD YOUR PAY TABLE</span>
+				{/if}
 				{@render props.children()}
 			</BaseScrollable>
 		</BaseContent>

@@ -10,5 +10,11 @@ export const stateI18nDerived = {
 		stateI18n.i18n.load(lang, messages as Messages);
 		stateI18n.i18n.activate(lang);
 	},
-	translate: (value: string) => stateI18n.i18n._(stateI18n.i18n.t(value)),
+	// `value` is the English source text (message id); `values` fill placeholders like {total}.
+	// Messages are loaded raw (not compiled by Lingui), so placeholders are replaced here.
+	translate: (value: string, values?: Record<string, string | number>) => {
+		const text = stateI18n.i18n._(value);
+		if (!values) return text;
+		return text.replace(/\{(\w+)\}/g, (match, key) => (key in values ? `${values[key]}` : match));
+	},
 };

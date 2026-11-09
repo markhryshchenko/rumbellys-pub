@@ -1,22 +1,16 @@
 <script lang="ts">
-	import { SvelteDate } from 'svelte/reactivity';
-
 	import { Text, REM } from 'pixi-svelte';
 	import { WHITE } from 'constants-shared/colors';
 
+	import UiClock from './UiClock.svelte';
+
 	type Props = {
 		name: string;
+		// games that place the clock elsewhere (with UiClock) turn it off here
+		showClock?: boolean;
 	};
 
-	const props: Props = $props();
-	const reactiveDate = new SvelteDate();
-	const clock = $derived(
-		reactiveDate.toLocaleTimeString('en-US', {
-			hour: 'numeric',
-			minute: 'numeric',
-			hour12: false,
-		}),
-	);
+	const { name, showClock = true }: Props = $props();
 	const textProps = {
 		style: {
 			fontFamily: 'proxima-nova',
@@ -28,17 +22,9 @@
 	} as const;
 
 	let clockSizes = $state({ width: 0, height: 0 });
-
-	$effect(() => {
-		const interval = setInterval(() => {
-			reactiveDate.setTime(Date.now());
-		}, 1000);
-
-		return () => {
-			clearInterval(interval);
-		};
-	});
 </script>
 
-<Text text={clock} onresize={(value) => (clockSizes = value)} {...textProps} />
-<Text text={props.name} x={clockSizes.width + 5} {...textProps} />
+{#if showClock}
+	<UiClock onresize={(value) => (clockSizes = value)} {...textProps} />
+{/if}
+<Text text={name} x={showClock ? clockSizes.width + 5 : 0} {...textProps} />

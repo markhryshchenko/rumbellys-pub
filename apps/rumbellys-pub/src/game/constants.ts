@@ -4,6 +4,12 @@ import type { RawSymbol, SymbolState } from './types';
 
 export const SYMBOL_SIZE = 120;
 
+// Translated texts use Pixi `Text` with system fonts: they cover every script the RGS can
+// request (Latin, Cyrillic, CJK, Arabic, Devanagari) and need no downloads (Engine forbids
+// external requests). Bitmap fonts are only for digits.
+export const GAME_FONT_FAMILY = ['Trebuchet MS', 'Segoe UI', 'Noto Sans', 'Arial', 'sans-serif'];
+export const GAME_TEXT_GOLD = { fill: 0xffd36b, stroke: { color: 0x2a160a, width: 6 } };
+
 export const REEL_PADDING = 0.53;
 
 // initial board (padded top and bottom)

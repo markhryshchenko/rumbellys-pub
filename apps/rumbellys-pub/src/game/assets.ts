@@ -1,16 +1,27 @@
 export default {
-	loader: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/loader/loader.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/loader/loader.json', import.meta.url).href,
-			scale: 2,
-		},
+	loaderRumbelly1: {
+		type: 'spriteSheet',
+		src: new URL('../../assets/sprites/loaderRumbelly1/loaderRumbelly1.json', import.meta.url).href,
 		preload: true,
 	},
-	pressToContinueText: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/pressToContinueText/MM_pressanywhere.json', import.meta.url).href,
+	loaderRumbelly2: {
+		type: 'spriteSheet',
+		src: new URL('../../assets/sprites/loaderRumbelly2/loaderRumbelly2.json', import.meta.url).href,
+		preload: true,
+	},
+	loaderSign: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/loader/sign.webp', import.meta.url).href,
+		preload: true,
+	},
+	loaderBar: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/loader/bar.webp', import.meta.url).href,
+		preload: true,
+	},
+	loaderBubble: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/loader/bubble.webp', import.meta.url).href,
 		preload: true,
 	},
 	H1: {
@@ -137,6 +148,10 @@ export default {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/buyBonus/banner.webp', import.meta.url).href,
 	},
+	parrot: {
+		type: 'spriteSheet',
+		src: new URL('../../assets/sprites/parrot/parrot.json', import.meta.url).href,
+	},
 	uiIcons: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/uiIcons/uiIcons.json', import.meta.url).href,
@@ -247,11 +262,6 @@ export default {
 			skeleton: new URL('../../assets/spines/reelhouse/reelhouse_glow.json', import.meta.url).href,
 			scale: 2,
 		},
-	},
-	progressBar: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/progressBar/progressBar.json', import.meta.url).href,
-		preload: true,
 	},
 	freeSpins: {
 		type: 'sprites',

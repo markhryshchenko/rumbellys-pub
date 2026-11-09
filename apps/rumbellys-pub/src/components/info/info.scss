@@ -1,0 +1,28 @@
+// Shared look of the paytable and game rules screens (HTML modals).
+.info {
+	--info-accent: #f2b632;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.6rem;
+	width: 100%;
+	max-width: 46rem;
+	margin: 0 auto;
+	color: #fff4dc;
+	font-family: 'Trebuchet MS', 'Segoe UI', 'Noto Sans', Arial, sans-serif;
+	font-size: 0.9rem;
+	line-height: 1.45;
+	text-align: start;
+
+	h2 {
+		margin: 0.8rem 0 0;
+		color: var(--info-accent);
+		font-size: 1.1rem;
+		letter-spacing: 0.04em;
+	}
+
+	p {
+		margin: 0;
+	}
+}

@@ -28,7 +28,8 @@
 		buyMode ? numberToCurrencyString(stateBet.betAmount * buyMode.costMultiplier) : '',
 	);
 
-	const openModal = () => (stateModal.modal = { name: 'buyBonus' });
+	// one bought feature: go straight to the confirmation (Engine: modes > 2x cost must be confirmed)
+	const openModal = () => (stateModal.modal = { name: 'buyBonusConfirm' });
 	const disableActiveBetMode = () => (stateBet.activeBetModeKey = 'BASE');
 	const onpress = () => {
 		eventEmitter.broadcast({ type: 'soundPressGeneral' });
@@ -53,12 +54,13 @@
 		return 'default' as const;
 	};
 
-	const textStyle = (size: number, fill: number) => ({
+	// caption: semibold; price (digits): bold
+	const textStyle = (size: number, fill: number, fontWeight: '600' | '800') => ({
 		align: 'center' as const,
 		wordWrap: true,
 		wordWrapWidth: BANNER.width * 0.8,
 		fontFamily: 'proxima-nova',
-		fontWeight: '800' as const,
+		fontWeight,
 		fontSize: size,
 		lineHeight: size * 1.05,
 		fill,
@@ -95,17 +97,17 @@
 						y={BANNER.height * 0.42}
 						anchor={0.5}
 						text={label}
-						style={textStyle(UI_BASE_FONT_SIZE * 0.9, UI_COLORS.icon)}
+						style={textStyle(UI_BASE_FONT_SIZE * 0.9 - 2, UI_COLORS.icon, '600')}
 					/>
 					<Text
 						y={BANNER.height * 0.62}
 						anchor={0.5}
 						text={price}
-						style={textStyle(UI_BASE_FONT_SIZE * 0.8, UI_COLORS.accent)}
+						style={textStyle(UI_BASE_FONT_SIZE * 0.8, UI_COLORS.accent, '800')}
 					/>
 				</Container>
 			{:else}
-				<!-- buys the free spins ("Rumbelly's Belly"); text comes from i18n, so social mode says "PLAY" -->
+				<!-- buys the free spins ("Rumbelly's Rounds"); text comes from i18n, so social mode says "GET" -->
 				<UiRound
 					{...center}
 					diameter={sizes.width * 0.9}
@@ -124,8 +126,8 @@
 							wordWrap: true,
 							wordWrapWidth: sizes.width * 0.7,
 							fontFamily: 'proxima-nova',
-							fontWeight: '800',
-							fontSize: UI_BASE_FONT_SIZE * 0.62,
+							fontWeight: '600',
+							fontSize: UI_BASE_FONT_SIZE * 0.62 - 2,
 							lineHeight: UI_BASE_FONT_SIZE * 0.66,
 							fill: UI_COLORS.icon,
 						}}

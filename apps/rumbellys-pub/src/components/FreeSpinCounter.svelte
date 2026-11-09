@@ -10,8 +10,9 @@
 	import { FadeContainer } from 'components-pixi';
 
 	import { getContext } from '../game/context';
-	import { SYMBOL_SIZE } from '../game/constants';
-	import { anchorToPivot, BitmapText, Container, Sprite, type Sizes } from 'pixi-svelte';
+	import { GAME_FONT_FAMILY, GAME_TEXT_GOLD, SYMBOL_SIZE } from '../game/constants';
+	import { i18nDerived } from '../i18n/i18nDerived';
+	import { anchorToPivot, Container, Sprite, Text, type Sizes } from 'pixi-svelte';
 
 	const context = getContext();
 	const PANEL_KEY_DESKTOP = 'Frame_FSCounter.png';
@@ -69,22 +70,26 @@
 				anchor: { x: 0.5, y: 0.5 },
 			})}
 		>
-			<BitmapText
-				text={'FREE SPIN'}
+			<Text
+				text={i18nDerived.freeSpins()}
 				style={{
-					fontFamily: 'gold',
+					...GAME_TEXT_GOLD,
+					fontFamily: GAME_FONT_FAMILY,
 					fontSize,
+					fontWeight: 'bold',
 					wordWrap: false,
 				}}
 				onresize={(sizes) => (titleSizes = sizes)}
 			/>
-			<BitmapText
-				text={`${current} OF ${total}`}
+			<Text
+				text={i18nDerived.freeSpinOf(current, total)}
 				{...counterPosition}
 				anchor={{ x: 0.5, y: 0 }}
 				style={{
-					fontFamily: 'gold',
+					...GAME_TEXT_GOLD,
+					fontFamily: GAME_FONT_FAMILY,
 					fontSize,
+					fontWeight: 'bold',
 				}}
 				onresize={(sizes) => (counterSizes = sizes)}
 			/>

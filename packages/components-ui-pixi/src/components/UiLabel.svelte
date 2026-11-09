@@ -17,8 +17,8 @@
 
 	const labelStyle = {
 		fontFamily: 'proxima-nova',
-		fontWeight: '800',
-		fontSize: UI_BASE_FONT_SIZE * 0.8,
+		fontWeight: '400',
+		fontSize: UI_BASE_FONT_SIZE * 0.8 - 2,
 		fill: UI_COLORS.accent,
 		dropShadow: shadow,
 	} as const;

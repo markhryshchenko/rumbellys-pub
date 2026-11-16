@@ -7,7 +7,7 @@
 	import { App, Text, REM } from 'pixi-svelte';
 	import { stateMeta, stateModal, stateUrlDerived } from 'state-shared';
 
-	import { UI, UiClock, UiGameName } from 'components-ui-pixi';
+	import { UI, UiClock } from 'components-ui-pixi';
 	import { GameVersion, Modals } from 'components-ui-html';
 
 	import { getContext } from '../game/context';
@@ -109,9 +109,8 @@
 		<Parrot />
 
 		<UI>
-			{#snippet gameName()}
-				<UiGameName name="RUMBELLY'S PUB" showClock={false} />
-			{/snippet}
+			<!-- the game title is the sign over the reel frame (BoardFrame) -->
+			{#snippet gameName()}{/snippet}
 			{#snippet logo()}{/snippet}
 		</UI>
 

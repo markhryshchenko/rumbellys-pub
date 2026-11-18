@@ -19,7 +19,7 @@
 	import { Tween } from 'svelte/motion';
 	import { cubicIn } from 'svelte/easing';
 
-	import { BitmapText, Container, Rectangle, Sprite } from 'pixi-svelte';
+	import { Container, Rectangle, Sprite, Text } from 'pixi-svelte';
 	import { FadeContainer } from 'components-pixi';
 	import { stateBetDerived } from 'state-shared';
 	import { waitForTimeout } from 'utils-shared/wait';
@@ -31,6 +31,7 @@
 		FREE_SPIN_PANEL,
 		FREE_SPIN_PANEL_STYLE,
 		SYMBOL_SIZE,
+		titleTextStyle,
 	} from '../game/constants';
 	import { getSymbolX, getSymbolY } from '../game/utils';
 
@@ -166,14 +167,14 @@
 		<Rectangle {...geometry.backing} {...FREE_SPIN_PANEL_STYLE} />
 
 		{#each MULTIPLIERS as multiplier, group}
-			<BitmapText
+			<Text
 				anchor={{ x: 0, y: 0.5 }}
 				x={geometry.labels[group].x}
 				y={geometry.labels[group].y}
 				alpha={level > group ? 1 : 0.45}
 				scale={level === group + 1 ? 1.15 : 1}
 				text={`x${multiplier}`}
-				style={{ fontFamily: 'gold', fontSize: geometry.mugSize * 0.75 }}
+				style={titleTextStyle(geometry.mugSize * 0.75)}
 			/>
 		{/each}
 

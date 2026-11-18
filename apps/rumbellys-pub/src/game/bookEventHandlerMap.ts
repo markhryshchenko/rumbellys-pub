@@ -90,9 +90,11 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		stateUi.freeSpinCounterShow = true;
 		eventEmitter.broadcast({
 			type: 'freeSpinCounterUpdate',
-			current: undefined,
+			// the number of the next spin: "1 OF 10" before the first spin, not "0 OF 10"
+			current: 1,
 			total: bookEvent.totalFs,
 		});
+		stateUi.freeSpinCounterCurrent = 1;
 		stateUi.freeSpinCounterTotal = bookEvent.totalFs;
 		eventEmitter.broadcast({ type: 'bellyMeterSet', mugs: 0, level: 0 });
 		eventEmitter.broadcast({ type: 'bellyMeterShow' });

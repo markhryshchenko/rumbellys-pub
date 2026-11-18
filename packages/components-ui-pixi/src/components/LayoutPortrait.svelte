@@ -17,6 +17,11 @@
 	const props: LayoutUiProps = $props();
 	const context = getContext();
 
+	// long amounts shrink: balance and win have the whole row, the bet sits between the
+	// - / + buttons (x centre ± 390)
+	const VALUE_MAX_WIDTH = 800;
+	const BET_VALUE_MAX_WIDTH = 560;
+
 	const DRAWER_Y = {
 		unfold: 0,
 		fold: 550,
@@ -116,7 +121,7 @@
 			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
 			y={context.stateLayoutDerived.mainLayoutStandard().height - 270}
 		>
-			{@render props.amountBalance({ stacked: true })}
+			{@render props.amountBalance({ stacked: true, valueMaxWidth: VALUE_MAX_WIDTH })}
 		</Container>
 	</Container>
 
@@ -125,7 +130,7 @@
 			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
 			y={context.stateLayoutDerived.mainLayoutStandard().height - 670}
 		>
-			{@render props.amountWin({ stacked: true })}
+			{@render props.amountWin({ stacked: true, valueMaxWidth: VALUE_MAX_WIDTH })}
 		</Container>
 	</Container>
 </MainContainer>
@@ -143,7 +148,7 @@
 			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
 			y={context.stateLayoutDerived.mainLayoutStandard().height - 130}
 		>
-			{@render props.amountBet({ stacked: true })}
+			{@render props.amountBet({ stacked: true, valueMaxWidth: BET_VALUE_MAX_WIDTH })}
 		</Container>
 
 		<Container

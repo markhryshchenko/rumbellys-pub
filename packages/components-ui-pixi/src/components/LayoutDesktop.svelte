@@ -23,10 +23,17 @@
 	const BUTTON_SCALE = 0.8;
 	const S = BUTTON_SCALE;
 	const MENU = { x: ROW_LEFT + 30 * S, y: ROW_Y - 5 };
-	const SOUND_Y = MENU.y + 62 * S;
-	const INFO_X = ROW_LEFT + 100 * S;
+	// menu (d 48), sound (d 47) and info (d 50) circles keep the same ~12 px gap between each other
+	const SOUND_Y = MENU.y + 75 * S;
+	const INFO_X = ROW_LEFT + 97 * S;
 	const LABELS_X = ROW_LEFT + 150 * S;
-	const WIN_X = 960; // screen centre = centre of the reel frame and of the bottom row
+	const WIN_X = 1000; // right of the screen centre (960): looks centred between the side blocks
+	// long amounts shrink so balance / bet (values start at x ~690) and win never touch:
+	// balance / bet values end by x 840, win stays inside 890..1110 (screen px)
+	const LABELS_SCALE = 0.7;
+	const WIN_SCALE = 0.8;
+	const LABEL_VALUE_MAX_WIDTH = 150 / LABELS_SCALE;
+	const WIN_VALUE_MAX_WIDTH = 220 / WIN_SCALE;
 	const SPIN = { x: ROW_RIGHT - (33 + 135) * S, y: ROW_Y }; // "+" (radius 33 * S) sits on the right edge
 </script>
 
@@ -57,17 +64,17 @@
 		{@render props.buttonGameRules({ anchor: 0.5 })}
 	</Container>
 
-	<Container x={LABELS_X} y={ROW_Y + 8} scale={0.7}>
-		{@render props.amountBalance({ stacked: false })}
+	<Container x={LABELS_X} y={ROW_Y + 8} scale={LABELS_SCALE}>
+		{@render props.amountBalance({ stacked: false, valueMaxWidth: LABEL_VALUE_MAX_WIDTH })}
 	</Container>
 
-	<Container x={LABELS_X} y={ROW_Y + 52} scale={0.7}>
-		{@render props.amountBet({ stacked: false })}
+	<Container x={LABELS_X} y={ROW_Y + 52} scale={LABELS_SCALE}>
+		{@render props.amountBet({ stacked: false, valueMaxWidth: LABEL_VALUE_MAX_WIDTH })}
 	</Container>
 
 	<!-- centre -->
-	<Container x={WIN_X} y={ROW_Y - 15} scale={0.8}>
-		{@render props.amountWin({ stacked: true })}
+	<Container x={WIN_X} y={ROW_Y - 15} scale={WIN_SCALE}>
+		{@render props.amountWin({ stacked: true, valueMaxWidth: WIN_VALUE_MAX_WIDTH })}
 	</Container>
 
 	<!-- bottom right -->
@@ -106,9 +113,10 @@
 		onpointerup={() => (stateUi.menuOpen = false)}
 	/>
 
-	<!-- opens upwards from the menu button -->
+	<!-- opens upwards, right of the menu / sound / info buttons (12 px gap from the info button)
+	     and a little higher, so the close button does not cover the BALANCE label -->
 	<MainContainer standard alignVertical="bottom">
-		<Container x={MENU.x + 20 * S} y={MENU.y}>
+		<Container x={ROW_LEFT + 190 * S} y={MENU.y - 50 * S}>
 			<Container scale={0.6 * S} y={-120 * S * 4}>
 				{@render props.buttonPayTable({ anchor: 0.5 })}
 			</Container>

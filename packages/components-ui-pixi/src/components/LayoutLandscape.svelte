@@ -10,6 +10,10 @@
 
 	const props: LayoutUiProps = $props();
 	const context = getContext();
+
+	// balance / win / bet are 490 apart (scale 0.8): long amounts shrink to 450 so they never touch
+	const LABELS_SCALE = 0.8;
+	const VALUE_MAX_WIDTH = 450 / LABELS_SCALE;
 </script>
 
 <Container x={20}>
@@ -40,16 +44,16 @@
 			{@render props.buttonBuyBonus({ anchor: 0.5 })}
 		</Container>
 
-		<Container y={LANDSCAPE_BASE_SIZE * 0.5} x={420} scale={0.8}>
-			{@render props.amountBalance({ stacked: true })}
+		<Container y={LANDSCAPE_BASE_SIZE * 0.5} x={420} scale={LABELS_SCALE}>
+			{@render props.amountBalance({ stacked: true, valueMaxWidth: VALUE_MAX_WIDTH })}
 		</Container>
 
-		<Container y={LANDSCAPE_BASE_SIZE * 0.5} x={910} scale={0.8}>
-			{@render props.amountWin({ stacked: true })}
+		<Container y={LANDSCAPE_BASE_SIZE * 0.5} x={910} scale={LABELS_SCALE}>
+			{@render props.amountWin({ stacked: true, valueMaxWidth: VALUE_MAX_WIDTH })}
 		</Container>
 
-		<Container y={LANDSCAPE_BASE_SIZE * 0.5} x={1400} scale={0.8}>
-			{@render props.amountBet({ stacked: true })}
+		<Container y={LANDSCAPE_BASE_SIZE * 0.5} x={1400} scale={LABELS_SCALE}>
+			{@render props.amountBet({ stacked: true, valueMaxWidth: VALUE_MAX_WIDTH })}
 		</Container>
 
 		<Container y={LANDSCAPE_BASE_SIZE * 0.5 - 90} x={1580} scale={0.8}>

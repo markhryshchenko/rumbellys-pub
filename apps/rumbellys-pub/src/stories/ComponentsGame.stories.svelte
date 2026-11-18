@@ -14,6 +14,8 @@
 		templateArgs,
 	} from 'components-storybook';
 
+	import { stateBet } from 'state-shared';
+
 	import { stateGame, stateGameDerived } from '../game/stateGame.svelte';
 	import Game from '../components/Game.svelte';
 	import { setContext } from '../game/context';
@@ -51,6 +53,23 @@
 			await stateGameDerived.enhancedBoard.preSpin({
 				paddingBoard: config.paddingReels[stateGame.gameType],
 			});
+		},
+	})}
+	{template}
+/>
+
+<!-- balance / bet / win with very long amounts: they must shrink, not overlap -->
+<Story
+	name="ui: long amounts"
+	args={templateArgs({
+		skipLoadingScreen: true,
+		data: {},
+		action: async () => {
+			stateBet.balanceAmount = 987_654_321.99;
+			stateBet.betAmount = 20_000;
+			stateBet.wageredBetAmount = 20_000;
+			// 5000x max win (book amounts: 100 = 1x the bet)
+			stateBet.winBookEventAmount = 5000 * 100;
 		},
 	})}
 	{template}

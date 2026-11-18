@@ -11,6 +11,9 @@
 
 	const props: LayoutUiProps = $props();
 	const context = getContext();
+
+	// balance / win / bet are 640 apart: long amounts shrink to 600 so they never touch
+	const VALUE_MAX_WIDTH = 600;
 </script>
 
 <Container x={20}>
@@ -34,15 +37,15 @@
 		})}
 	>
 		<Container y={DESKTOP_BASE_SIZE * 0.5 - 220} x={880 - 640}>
-			{@render props.amountBalance({ stacked: true })}
+			{@render props.amountBalance({ stacked: true, valueMaxWidth: VALUE_MAX_WIDTH })}
 		</Container>
 
 		<Container y={DESKTOP_BASE_SIZE * 0.5 - 220} x={880}>
-			{@render props.amountWin({ stacked: true })}
+			{@render props.amountWin({ stacked: true, valueMaxWidth: VALUE_MAX_WIDTH })}
 		</Container>
 
 		<Container y={DESKTOP_BASE_SIZE * 0.5 - 220} x={880 + 640}>
-			{@render props.amountBet({ stacked: true })}
+			{@render props.amountBet({ stacked: true, valueMaxWidth: VALUE_MAX_WIDTH })}
 		</Container>
 
 		<Container y={DESKTOP_BASE_SIZE * 0.5} x={20}>

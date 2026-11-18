@@ -38,12 +38,18 @@ export type ButtonIcon =
 // frames "icon_<name>" in the game's uiIcons atlas
 export type IconName = ButtonIcon | 'spin' | 'stop' | 'drawer';
 
+export type LabelProps = {
+	stacked?: boolean;
+	// the amount's font gets smaller when the text is wider than this (label's local px)
+	valueMaxWidth?: number;
+};
+
 export type LayoutUiProps = {
 	gameName: Snippet;
 	logo: Snippet;
-	amountBalance: Snippet<[{ stacked?: boolean }]>;
-	amountWin: Snippet<[{ stacked?: boolean }]>;
-	amountBet: Snippet<[{ stacked?: boolean }]>;
+	amountBalance: Snippet<[LabelProps]>;
+	amountWin: Snippet<[LabelProps]>;
+	amountBet: Snippet<[LabelProps]>;
 	buttonBuyBonus: Snippet<[Partial<ButtonProps>]>;
 	buttonBet: Snippet<[Partial<ButtonProps>]>;
 	buttonTurbo: Snippet<[Partial<ButtonProps>]>;

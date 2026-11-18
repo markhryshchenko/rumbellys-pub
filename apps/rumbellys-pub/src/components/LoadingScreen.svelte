@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { UI_FONT_FAMILY } from 'constants-shared/font';
 	import _ from 'lodash';
 	import { onMount } from 'svelte';
 	import { Tween } from 'svelte/motion';
@@ -144,7 +145,7 @@
 					wordWrap: true,
 					breakWords: true,
 					wordWrapWidth: scene.bubble.width * 0.62,
-					fontFamily: 'proxima-nova',
+					fontFamily: UI_FONT_FAMILY,
 					fontWeight: '700',
 					fontSize: scene.bubble.width * 0.054,
 					lineHeight: scene.bubble.width * 0.066,
@@ -177,7 +178,7 @@
 		alpha={0.75}
 		text="TALUS PLAY"
 		style={{
-			fontFamily: 'proxima-nova',
+			fontFamily: UI_FONT_FAMILY,
 			fontSize: REM * 0.85,
 			fontWeight: '300',
 			letterSpacing: REM * 0.1,

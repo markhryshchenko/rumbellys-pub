@@ -66,7 +66,7 @@
 
 <style lang="scss">
 	.pop-up-wrap {
-		font-family: 'proxima-nova', sans-serif;
+		font-family: 'Trebuchet MS', 'Segoe UI', 'Noto Sans', Arial, sans-serif; /* UI_FONT_FAMILY in constants-shared/font.ts */
 		touch-action: manipulation;
 		color: white;
 		position: fixed;

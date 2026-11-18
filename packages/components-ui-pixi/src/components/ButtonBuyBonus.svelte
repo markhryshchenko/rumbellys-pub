@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { UI_FONT_FAMILY } from 'constants-shared/font';
 	import { Container, Sprite, Text } from 'pixi-svelte';
 	import { Button, type ButtonProps } from 'components-pixi';
 	import { getContextLayout } from 'utils-layout';
@@ -59,7 +60,7 @@
 		align: 'center' as const,
 		wordWrap: true,
 		wordWrapWidth: BANNER.width * 0.8,
-		fontFamily: 'proxima-nova',
+		fontFamily: UI_FONT_FAMILY,
 		fontWeight,
 		fontSize: size,
 		lineHeight: size * 1.05,
@@ -125,7 +126,7 @@
 							align: 'center',
 							wordWrap: true,
 							wordWrapWidth: sizes.width * 0.7,
-							fontFamily: 'proxima-nova',
+							fontFamily: UI_FONT_FAMILY,
 							fontWeight: '600',
 							fontSize: UI_BASE_FONT_SIZE * 0.62 - 2,
 							lineHeight: UI_BASE_FONT_SIZE * 0.66,

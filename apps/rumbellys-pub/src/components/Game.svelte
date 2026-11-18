@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { UI_FONT_FAMILY } from 'constants-shared/font';
 	import { onMount } from 'svelte';
 
 	import { EnablePixiExtension } from 'components-pixi';
@@ -59,7 +60,7 @@
 	const cornerTextProps = {
 		alpha: 0.75,
 		style: {
-			fontFamily: 'proxima-nova',
+			fontFamily: UI_FONT_FAMILY,
 			fontSize: REM * 0.85,
 			fontWeight: '300',
 			letterSpacing: REM * 0.1,

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { UI_FONT_FAMILY } from 'constants-shared/font';
 	import { Text, Circle } from 'pixi-svelte';
 	import { stateBet } from 'state-shared';
 	import { WHITE } from 'constants-shared/colors';
@@ -26,7 +27,7 @@
 		anchor={0.5}
 		text={stateBet.autoSpinsCounter === Infinity ? '∞' : stateBet.autoSpinsCounter}
 		style={{
-			fontFamily: 'proxima-nova',
+			fontFamily: UI_FONT_FAMILY,
 			fill: WHITE,
 			fontWeight: 'bold',
 			fontSize: fontSizeMultiplier * UI_BASE_SIZE * 0.2,

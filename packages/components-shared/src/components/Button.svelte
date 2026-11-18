@@ -20,7 +20,7 @@
 	.button {
 		width: 100%;
 		position: relative;
-		font-family: 'proxima-nova', sans-serif;
+		font-family: 'Trebuchet MS', 'Segoe UI', 'Noto Sans', Arial, sans-serif; /* UI_FONT_FAMILY in constants-shared/font.ts */
 		cursor: pointer;
 		display: inline-flex;
 		justify-content: center;

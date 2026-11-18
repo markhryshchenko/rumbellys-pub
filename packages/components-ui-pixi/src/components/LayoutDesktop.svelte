@@ -26,7 +26,7 @@
 	const SOUND_Y = MENU.y + 62 * S;
 	const INFO_X = ROW_LEFT + 100 * S;
 	const LABELS_X = ROW_LEFT + 150 * S;
-	const WIN_X = 1045; // between the balance / bet values and the "-" button
+	const WIN_X = 960; // screen centre = centre of the reel frame and of the bottom row
 	const SPIN = { x: ROW_RIGHT - (33 + 135) * S, y: ROW_Y }; // "+" (radius 33 * S) sits on the right edge
 </script>
 

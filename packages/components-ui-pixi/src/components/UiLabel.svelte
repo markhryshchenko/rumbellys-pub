@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { UI_FONT_FAMILY } from 'constants-shared/font';
 	import { Text } from 'pixi-svelte';
 
 	import { UI_BASE_FONT_SIZE, UI_COLORS } from '../constants';
@@ -16,7 +17,7 @@
 	const shadow = { color: 0x000000, alpha: 0.85, blur: 4, distance: 2, angle: Math.PI / 2 };
 
 	const labelStyle = {
-		fontFamily: 'proxima-nova',
+		fontFamily: UI_FONT_FAMILY,
 		fontWeight: '400',
 		fontSize: UI_BASE_FONT_SIZE * 0.8 - 2,
 		fill: UI_COLORS.accent,
@@ -24,7 +25,7 @@
 	} as const;
 
 	const valueStyle = {
-		fontFamily: 'proxima-nova',
+		fontFamily: UI_FONT_FAMILY,
 		fontWeight: '700',
 		fontSize: UI_BASE_FONT_SIZE,
 		fill: UI_COLORS.icon,

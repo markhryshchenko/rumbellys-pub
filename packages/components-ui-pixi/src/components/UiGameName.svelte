@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { UI_FONT_FAMILY } from 'constants-shared/font';
 	import { Text, REM } from 'pixi-svelte';
 	import { WHITE } from 'constants-shared/colors';
 
@@ -13,7 +14,7 @@
 	const { name, showClock = true }: Props = $props();
 	const textProps = {
 		style: {
-			fontFamily: 'proxima-nova',
+			fontFamily: UI_FONT_FAMILY,
 			fontSize: REM * 1.5,
 			fontWeight: '600',
 			lineHeight: REM * 2,

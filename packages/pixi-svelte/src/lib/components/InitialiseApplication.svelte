@@ -4,7 +4,6 @@
 	import { devicePixelRatio } from 'svelte/reactivity/window';
 
 	import { getContextApp } from '../context.svelte';
-	import { preloadFont } from '../utils.svelte';
 
 	type Props = { children: Snippet };
 
@@ -17,7 +16,8 @@
 	const initialiseApplication = async () => {
 		PIXI.Assets.reset();
 
-		await preloadFont();
+		// no web font preload: the UI uses system fonts (constants-shared/font.ts), the game's own
+		// fonts are bundled assets. The sample loaded an Adobe Typekit kit from an outside server.
 		context.stateApp.pixiApplication = new PIXI.Application<PIXI.Renderer<HTMLCanvasElement>>();
 		await context.stateApp.pixiApplication.init({
 			autoDensity: true,

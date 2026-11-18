@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { UI_FONT_FAMILY } from 'constants-shared/font';
 	import { MainContainer, OnPressFullScreen } from 'components-layout';
 	import { OnHotkey } from 'components-shared';
 	import { Text } from 'pixi-svelte';
@@ -28,7 +29,7 @@
 			wordWrap: true,
 			breakWords: true,
 			wordWrapWidth: context.stateLayoutDerived.mainLayout().width * 0.9,
-			fontFamily: 'proxima-nova',
+			fontFamily: UI_FONT_FAMILY,
 			fontWeight: '800',
 			fontSize: 30,
 			fill: 0xffffff,

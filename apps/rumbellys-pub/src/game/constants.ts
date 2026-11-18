@@ -217,9 +217,17 @@ export const zIndexes = {
 };
 
 // Rumbelly's Pub symbols come from the symbolsStatic atlas (built by art/tools/build_atlas.py).
-// Every state shows the static sprite until win/land animations are made.
+// Every state shows the static sprite; symbols with winFrames play them on a win.
 type SizeRatios = { width: number; height: number };
-export type SpriteSymbolInfo = { type: 'sprite'; assetKey: string; sizeRatios: SizeRatios };
+// win animation frames "<prefix>_00".. (art/tools/symbol_anim.py); a frame is cellScale x the symbol
+// size, frame 0 covers the static symbol
+export type WinFrames = { prefix: string; count: number; cellScale: number };
+export type SpriteSymbolInfo = {
+	type: 'sprite';
+	assetKey: string;
+	sizeRatios: SizeRatios;
+	winFrames?: WinFrames;
+};
 export type SpineSymbolInfo = {
 	type: 'spine';
 	assetKey: string;
@@ -243,18 +251,36 @@ const allStates = (info: SymbolInfo) => ({
 	land: info,
 });
 
+// static sprite in every state, the win state also plays its frames
+const withWinFrames = (info: SymbolInfo, winFrames: WinFrames) => ({
+	...allStates(info),
+	win: { ...info, winFrames },
+});
+
 export const SYMBOL_INFO_MAP = {
-	H1: allStates(sprite('h1.webp', HIGH_SYMBOL_SIZE)),
+	H1: withWinFrames(sprite('h1.webp', HIGH_SYMBOL_SIZE), {
+		prefix: 'coinWin',
+		count: 15,
+		cellScale: 1.2,
+	}),
 	H2: allStates(sprite('h2.webp', HIGH_SYMBOL_SIZE)),
 	H3: allStates(sprite('h3.webp', HIGH_SYMBOL_SIZE)),
 	H4: allStates(sprite('h4.webp', HIGH_SYMBOL_SIZE)),
-	H5: allStates(sprite('h5.webp', HIGH_SYMBOL_SIZE)),
+	H5: withWinFrames(sprite('h5.webp', HIGH_SYMBOL_SIZE), {
+		prefix: 'mugWin',
+		count: 10,
+		cellScale: 1.2,
+	}),
 	L1: allStates(sprite('l1.webp', LOW_SYMBOL_SIZE)),
 	L2: allStates(sprite('l2.webp', LOW_SYMBOL_SIZE)),
 	L3: allStates(sprite('l3.webp', LOW_SYMBOL_SIZE)),
 	L4: allStates(sprite('l4.webp', LOW_SYMBOL_SIZE)),
 	L5: allStates(sprite('l5.webp', LOW_SYMBOL_SIZE)),
-	W: allStates(sprite('w.png', SPECIAL_SYMBOL_SIZE)),
+	W: withWinFrames(sprite('w.png', SPECIAL_SYMBOL_SIZE), {
+		prefix: 'wildWin',
+		count: 15,
+		cellScale: 1.2,
+	}),
 	S: allStates(sprite('s.png', SPECIAL_SYMBOL_SIZE)),
 } as const;
 

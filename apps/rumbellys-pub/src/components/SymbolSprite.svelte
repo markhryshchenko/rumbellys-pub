@@ -21,8 +21,8 @@
 	const props: Props = $props();
 	const context = getContext();
 
-	// Win presentation for every symbol (drawn in code, no art):
-	// the symbol pulses twice over a warm gold glow, the other symbols get darker.
+	// Win presentation for every symbol: the symbol pulses twice over a warm gold glow, the other
+	// symbols get darker. Symbols with win frames (coin: light sweep) also play them.
 	const WIN_TIME = 900; // ms at normal speed
 	const PULSES = 2;
 	const PULSE_SCALE = 0.14; // extra size at the top of a pulse
@@ -81,6 +81,14 @@
 	);
 	const scale = $derived(1 + PULSE_SCALE * pulse);
 
+	// symbols with win frames play them once over the win (frame 0 = the static symbol)
+	const winFrames = $derived('winFrames' in props.symbolInfo ? props.symbolInfo.winFrames : undefined);
+	const frame = $derived.by(() => {
+		if (!winFrames || winTime === null) return undefined;
+		const index = Math.min(Math.floor(progress * winFrames.count), winFrames.count - 1);
+		return { key: `${winFrames.prefix}_${String(index).padStart(2, '0')}`, size: winFrames.cellScale };
+	});
+
 	const dim = new Tween(0, { duration: DIM_TIME });
 	$effect(() => {
 		dim.set(context.stateGame.symbolsDimmed && props.state !== 'win' ? 1 : 0);
@@ -109,8 +117,8 @@
 	x={props.x}
 	y={props.y}
 	anchor={0.5}
-	key={props.symbolInfo.assetKey}
+	key={frame?.key ?? props.symbolInfo.assetKey}
 	{tint}
-	width={SYMBOL_SIZE * props.symbolInfo.sizeRatios.width * scale}
-	height={SYMBOL_SIZE * props.symbolInfo.sizeRatios.height * scale}
+	width={SYMBOL_SIZE * props.symbolInfo.sizeRatios.width * scale * (frame?.size ?? 1)}
+	height={SYMBOL_SIZE * props.symbolInfo.sizeRatios.height * scale * (frame?.size ?? 1)}
 />

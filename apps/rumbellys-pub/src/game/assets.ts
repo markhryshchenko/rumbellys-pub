@@ -281,6 +281,19 @@ export default {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/symbolsStatic/symbolsStatic.json', import.meta.url).href,
 	},
+	// symbol win animations (art/tools/symbol_anim.py, from Midjourney Animate clips)
+	coinWin: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/coinWin/coinWin.json', import.meta.url).href,
+	},
+	wildWin: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/wildWin/wildWin.json', import.meta.url).href,
+	},
+	mugWin: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/mugWin/mugWin.json', import.meta.url).href,
+	},
 	// wooden sign behind the big win title (art/tools/bigwin_sign.py)
 	bigWinSign: {
 		type: 'sprite',

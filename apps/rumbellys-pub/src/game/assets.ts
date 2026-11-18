@@ -168,6 +168,12 @@ export default {
 			scale: 2,
 		},
 	},
+	// game title font (sign, big win). Pixi registers it as the "New Rocker" family (from the
+	// file name). Latin only: other scripts fall back to GAME_FONT_FAMILY. License: OFL.txt next to it.
+	newRocker: {
+		type: 'font',
+		src: new URL('../../assets/fonts/newRocker/new-rocker.woff2', import.meta.url).href,
+	},
 	goldFont: {
 		type: 'font',
 		src: new URL('../../assets/fonts/goldFont/mm_gold.xml', import.meta.url).href,
@@ -290,6 +296,16 @@ export default {
 	symbolsStatic: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/symbolsStatic/symbolsStatic.json', import.meta.url).href,
+	},
+	// wooden sign behind the big win title (art/tools/bigwin_sign.py)
+	bigWinSign: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/bigWin/sign.webp', import.meta.url).href,
+	},
+	// big win coin fountain: our doubloon turned from front to edge (art/tools/coin_frames.py)
+	rumbellyCoins: {
+		type: 'spriteSheet',
+		src: new URL('../../assets/sprites/rumbellyCoins/coins.json', import.meta.url).href,
 	},
 	coins: {
 		type: 'spriteSheet',

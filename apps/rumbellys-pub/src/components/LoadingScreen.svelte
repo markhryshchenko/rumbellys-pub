@@ -74,14 +74,8 @@
 		height: scene.bar.height * (BAR_SLOT.bottom - BAR_SLOT.top),
 	});
 
-	// Dev / Storybook only: stretches the loading bar over this many seconds, to watch the
-	// animation (real loading is too fast). 0 = off. Always off in the production build.
-	const DEBUG_LOADING_SECONDS = import.meta.env.DEV ? 10 : 0;
-	const debugProgress = new Tween(0);
-	const progress = $derived(
-		DEBUG_LOADING_SECONDS ? debugProgress.current : context.stateApp.loadingProgress,
-	);
-	const loaded = $derived(context.stateApp.loaded && (!DEBUG_LOADING_SECONDS || progress === 100));
+	const progress = $derived(context.stateApp.loadingProgress);
+	const loaded = $derived(context.stateApp.loaded);
 	const beerWidth = $derived((slot.width * progress) / 100);
 
 	const tips = $derived(context.i18nDerived.loaderTips());
@@ -89,8 +83,6 @@
 	const tipAlpha = new Tween(1);
 
 	onMount(() => {
-		if (DEBUG_LOADING_SECONDS) debugProgress.set(100, { duration: DEBUG_LOADING_SECONDS * 1000 });
-
 		let alive = true;
 		(async () => {
 			while (alive) {

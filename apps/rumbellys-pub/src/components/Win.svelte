@@ -16,7 +16,7 @@
 	import { OnMount } from 'components-shared';
 
 	import WinCoins from './WinCoins.svelte';
-	import WinAnimation from './WinAnimation.svelte';
+	import BigWin from './BigWin.svelte';
 	import PressToContinue from './PressToContinue.svelte';
 	import { SYMBOL_SIZE } from '../game/constants';
 	import { getContext } from '../game/context';
@@ -43,6 +43,7 @@
 <FadeContainer {show}>
 	{#if winLevelData}
 		{@const isBigWin = winLevelData.type === 'big'}
+		{@const finalLevel = winLevelData.level}
 		{@const duration = winLevelData.presentDuration}
 		<WinCountUpProvider {amount} {duration} oncomplete={() => onCountUpComplete()}>
 			{#snippet children({ countUpAmount, startCountUp, finishCountUp, countUpCompleted })}
@@ -63,21 +64,12 @@
 						x={context.stateGameDerived.boardLayout().x}
 						y={context.stateGameDerived.boardLayout().y}
 					>
-						{#if winLevelData?.animation}
-							<WinAnimation animationMap={winLevelData.animation}>
-								<ResponsiveBitmapText
-									anchor={0.5}
-									maxWidth={2130}
-									text={bookEventAmountToCurrencyString(countUpAmount)}
-									style={{
-										fontFamily: 'gold',
-										fontSize: SYMBOL_SIZE * 3.6,
-										align: 'center',
-										fontWeight: 'bold',
-										letterSpacing: 0,
-									}}
-								/>
-							</WinAnimation>
+						{#if isBigWin}
+							<BigWin
+								{countUpAmount}
+								amountText={bookEventAmountToCurrencyString(countUpAmount)}
+								{finalLevel}
+							/>
 						{:else}
 							<ResponsiveBitmapText
 								anchor={0.5}

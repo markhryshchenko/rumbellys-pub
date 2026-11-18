@@ -9,6 +9,9 @@ export const SYMBOL_SIZE = 120;
 // external requests). Bitmap fonts are only for digits.
 export const GAME_FONT_FAMILY = ['Trebuchet MS', 'Segoe UI', 'Noto Sans', 'Arial', 'sans-serif'];
 export const GAME_TEXT_GOLD = { fill: 0xffd36b, stroke: { color: 0x2a160a, width: 6 } };
+// Title font of the game sign (bundled web font, Latin scripts only). Missing glyphs (Cyrillic,
+// CJK, Arabic, Devanagari, Vietnamese) are drawn by the next families in the list.
+export const TITLE_FONT_FAMILY = ['New Rocker', ...GAME_FONT_FAMILY];
 
 export const REEL_PADDING = 0.53;
 

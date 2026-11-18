@@ -26,7 +26,8 @@
 			x={context.stateGameDerived.boardLayout().x}
 			y={context.stateGameDerived.boardLayout().y}
 		>
-			<ParticleEmitter {config} key="coins" emit={props.emit} />
+			<!-- each particle gets a random frame (front ... edge) and spins: a coin fountain -->
+			<ParticleEmitter {config} key="rumbellyCoins" emit={props.emit} />
 		</Container>
 	</MainContainer>
 {/if}

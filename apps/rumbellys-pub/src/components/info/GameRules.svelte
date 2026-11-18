@@ -43,10 +43,13 @@
 
 	<h2>{t('GAME INFORMATION')}</h2>
 	<p>
-		{t('Theoretical return to player (RTP): {base} in the base game, {bonus} for bought free spins.', {
-			base: percent(config.betModes.base.rtp),
-			bonus: percent(config.betModes.bonus.rtp),
-		})}
+		{t(
+			'Theoretical return to player (RTP): {base} in the base game, {bonus} for bought free spins.',
+			{
+				base: percent(config.betModes.base.rtp),
+				bonus: percent(config.betModes.bonus.rtp),
+			},
+		)}
 	</p>
 	<p>
 		{t(
@@ -62,10 +65,17 @@
 	<ul class="rules">
 		<li>{t('Press the spin button or the spacebar to start a round.')}</li>
 		<li>{t('Use + and − to change the bet.')}</li>
-		<li>{t('AUTO SPIN: choose the number of rounds and confirm to start. Press again to stop.')}</li>
+		<li>{t('Press the bet amount to choose the bet from a list.')}</li>
+		<li>
+			{t('AUTO SPIN: choose the number of rounds and confirm to start. Press again to stop.')}
+		</li>
 		<li>{t('TURBO: faster spins.')}</li>
 		<li>{t("BUY BONUS: start RUMBELLY'S ROUNDS right away. A confirmation is shown first.")}</li>
 		<li>{t('MENU: paytable, game rules, settings and sound.')}</li>
+		<li>{t('INFO (i): the paytable with symbol payouts and win lines.')}</li>
+		<li>{t('GAME RULES (list icon): this page.')}</li>
+		<li>{t('SETTINGS: master, music and sound effects volume.')}</li>
+		<li>{t('SOUND: turns the sound on or off.')}</li>
 		<li>{t('BALANCE shows your balance. WIN shows the win of the current round.')}</li>
 	</ul>
 

@@ -44,6 +44,27 @@ const animateSymbols = async ({ positions }: { positions: Position[] }) => {
 	});
 };
 
+// win amount of one line, over its middle symbol
+const showLineWinAmount = (win: { win: number; positions: Position[] }) => {
+	const positions = _.sortBy(win.positions, (position) => position.reel);
+	eventEmitter.broadcast({
+		type: 'lineWinAmountShow',
+		amount: win.win,
+		position: positions[Math.floor(positions.length / 2)],
+	});
+};
+
+// the other symbols stay dark during the whole presentation (all lines one after another),
+// so the board does not flash between two lines
+const withDimmedSymbols = async (present: () => Promise<unknown>) => {
+	stateGame.symbolsDimmed = true;
+	try {
+		await present();
+	} finally {
+		stateGame.symbolsDimmed = false;
+	}
+};
+
 export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContext> = {
 	reveal: async (bookEvent: BookEventOfType<'reveal'>, { bookEvents }: BookEventContext) => {
 		const isBonusGame = checkIsMultipleRevealEvents({ bookEvents });
@@ -61,8 +82,24 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	},
 	winInfo: async (bookEvent: BookEventOfType<'winInfo'>) => {
 		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_winlevel_small' });
-		await sequence(bookEvent.wins, async (win) => {
-			await animateSymbols({ positions: win.positions });
+		await withDimmedSymbols(async () => {
+			// 1. every winning symbol at once: the result is clear in one beat
+			const allPositions = _.uniqBy(
+				bookEvent.wins.flatMap((win) => win.positions),
+				(position) => `${position.reel}:${position.row}`,
+			);
+			const single = bookEvent.wins.length === 1;
+			if (single) showLineWinAmount(bookEvent.wins[0]);
+			await animateSymbols({ positions: allPositions });
+			eventEmitter.broadcast({ type: 'lineWinAmountHide' });
+
+			// 2. then line by line with the win of each line (skipped in turbo)
+			if (single || stateBet.isTurbo) return;
+			await sequence(bookEvent.wins, async (win) => {
+				showLineWinAmount(win);
+				await animateSymbols({ positions: win.positions });
+				eventEmitter.broadcast({ type: 'lineWinAmountHide' });
+			});
 		});
 	},
 	setTotalWin: async (bookEvent: BookEventOfType<'setTotalWin'>) => {
@@ -71,7 +108,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	freeSpinTrigger: async (bookEvent: BookEventOfType<'freeSpinTrigger'>) => {
 		// animate scatters
 		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_scatter_win_v2' });
-		await animateSymbols({ positions: bookEvent.positions });
+		await withDimmedSymbols(() => animateSymbols({ positions: bookEvent.positions }));
 		// show free spin intro
 		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_superfreespin' });
 		await eventEmitter.broadcastAsync({ type: 'uiHide' });
@@ -155,7 +192,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	},
 	freeSpinRetrigger: async (bookEvent: BookEventOfType<'freeSpinRetrigger'>) => {
 		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_scatter_win_v2' });
-		await animateSymbols({ positions: bookEvent.positions });
+		await withDimmedSymbols(() => animateSymbols({ positions: bookEvent.positions }));
 		eventEmitter.broadcast({ type: 'freeSpinCounterUpdate', total: bookEvent.totalFs });
 		stateUi.freeSpinCounterTotal = bookEvent.totalFs;
 	},

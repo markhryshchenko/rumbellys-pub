@@ -64,7 +64,8 @@ const en = {
 	'Only the highest win on each line counts. Wins on different lines are added together.':
 		'Only the highest win on each line counts. Wins on different lines are added together.',
 	'Values are shown for the current total bet.': 'Values are shown for the current total bet.',
-	'WILD substitutes for all symbols except SCATTER.': 'WILD substitutes for all symbols except SCATTER.',
+	'WILD substitutes for all symbols except SCATTER.':
+		'WILD substitutes for all symbols except SCATTER.',
 	"SCATTER can land anywhere. 3, 4 or 5 SCATTER symbols start RUMBELLY'S ROUNDS.":
 		"SCATTER can land anywhere. 3, 4 or 5 SCATTER symbols start RUMBELLY'S ROUNDS.",
 	'WIN LINES': 'WIN LINES',
@@ -98,7 +99,16 @@ const en = {
 	'TURBO: faster spins.': 'TURBO: faster spins.',
 	"BUY BONUS: start RUMBELLY'S ROUNDS right away. A confirmation is shown first.":
 		"BUY BONUS: start RUMBELLY'S ROUNDS right away. A confirmation is shown first.",
-	'MENU: paytable, game rules, settings and sound.': 'MENU: paytable, game rules, settings and sound.',
+	'MENU: paytable, game rules, settings and sound.':
+		'MENU: paytable, game rules, settings and sound.',
+	'Press the bet amount to choose the bet from a list.':
+		'Press the bet amount to choose the bet from a list.',
+	'INFO (i): the paytable with symbol payouts and win lines.':
+		'INFO (i): the paytable with symbol payouts and win lines.',
+	'GAME RULES (list icon): this page.': 'GAME RULES (list icon): this page.',
+	'SETTINGS: master, music and sound effects volume.':
+		'SETTINGS: master, music and sound effects volume.',
+	'SOUND: turns the sound on or off.': 'SOUND: turns the sound on or off.',
 	'BALANCE shows your balance. WIN shows the win of the current round.':
 		'BALANCE shows your balance. WIN shows the win of the current round.',
 	DISCLAIMER: 'DISCLAIMER',
@@ -115,17 +125,21 @@ const en = {
 	BASE: 'BASE',
 	BONUS: 'BONUS',
 	// loading screen
-	"Land 3 rum barrels to start RUMBELLY'S ROUNDS!": "Land 3 rum barrels to start RUMBELLY'S ROUNDS!",
-	"3, 4 or 5 barrels give 8, 10 or 12 free spins!": "3, 4 or 5 barrels give 8, 10 or 12 free spins!",
-	"Every 4 mugs raise the multiplier, up to x10!": "Every 4 mugs raise the multiplier, up to x10!",
-	"Each new multiplier pours 2 more free spins!": "Each new multiplier pours 2 more free spins!",
-	"3 or more barrels in the free spins? +5 spins on the house!": "3 or more barrels in the free spins? +5 spins on the house!",
-	"Rumbelly's emblem is WILD: it replaces every symbol except the barrel!": "Rumbelly's emblem is WILD: it replaces every symbol except the barrel!",
-	"Ahoy, matey! The taps are open.": "Ahoy, matey! The taps are open.",
+	"Land 3 rum barrels to start RUMBELLY'S ROUNDS!":
+		"Land 3 rum barrels to start RUMBELLY'S ROUNDS!",
+	'3, 4 or 5 barrels give 8, 10 or 12 free spins!':
+		'3, 4 or 5 barrels give 8, 10 or 12 free spins!',
+	'Every 4 mugs raise the multiplier, up to x10!': 'Every 4 mugs raise the multiplier, up to x10!',
+	'Each new multiplier pours 2 more free spins!': 'Each new multiplier pours 2 more free spins!',
+	'3 or more barrels in the free spins? +5 spins on the house!':
+		'3 or more barrels in the free spins? +5 spins on the house!',
+	"Rumbelly's emblem is WILD: it replaces every symbol except the barrel!":
+		"Rumbelly's emblem is WILD: it replaces every symbol except the barrel!",
+	'Ahoy, matey! The taps are open.': 'Ahoy, matey! The taps are open.',
 	"Pull up a stool, this round's on Rumbelly!": "Pull up a stool, this round's on Rumbelly!",
-	"Mind the foam, sailor!": "Mind the foam, sailor!",
-	"Cheers! Another round for the reels!": "Cheers! Another round for the reels!",
-	"PRESS ANYWHERE TO CONTINUE": "PRESS ANYWHERE TO CONTINUE",
+	'Mind the foam, sailor!': 'Mind the foam, sailor!',
+	'Cheers! Another round for the reels!': 'Cheers! Another round for the reels!',
+	'PRESS ANYWHERE TO CONTINUE': 'PRESS ANYWHERE TO CONTINUE',
 };
 
 export type MessageKey = keyof typeof en;

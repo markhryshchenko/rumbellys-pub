@@ -25,6 +25,7 @@
 	import BoardFrame from './BoardFrame.svelte';
 	import Board from './Board.svelte';
 	import Anticipations from './Anticipations.svelte';
+	import LineWinAmount from './LineWinAmount.svelte';
 	import Win from './Win.svelte';
 	import FreeSpinIntro from './FreeSpinIntro.svelte';
 	import FreeSpinCounter from './FreeSpinCounter.svelte';
@@ -103,6 +104,7 @@
 		<MainContainer>
 			<Mascot />
 			<Board />
+			<LineWinAmount />
 			<Anticipations />
 			<BellyMeter />
 		</MainContainer>

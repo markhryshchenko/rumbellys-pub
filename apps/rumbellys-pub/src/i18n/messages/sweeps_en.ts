@@ -23,7 +23,12 @@ const sweepsEn: Partial<GameMessages> = {
 	'Use + and − to change the bet.': 'Use + and − to change the play amount.',
 	"BUY BONUS: start RUMBELLY'S ROUNDS right away. A confirmation is shown first.":
 		"GET BONUS: start RUMBELLY'S ROUNDS right away. A confirmation is shown first.",
-	'MENU: paytable, game rules, settings and sound.': 'MENU: win table, game rules, settings and sound.',
+	'MENU: paytable, game rules, settings and sound.':
+		'MENU: win table, game rules, settings and sound.',
+	'Press the bet amount to choose the bet from a list.':
+		'Press the play amount to choose it from a list.',
+	'INFO (i): the paytable with symbol payouts and win lines.':
+		'INFO (i): the win table with symbol wins and win lines.',
 	'INSUFFICIENT FUNDS TO PLACE THIS BET. PLEASE ADD FUNDS TO YOUR ACCOUNT OR LOWER THE BET LEVEL.':
 		'INSUFFICIENT BALANCE FOR THIS PLAY. PLEASE GET COINS OR LOWER THE PLAY AMOUNT.',
 };

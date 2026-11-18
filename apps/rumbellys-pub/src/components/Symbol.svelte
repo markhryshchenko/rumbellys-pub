@@ -22,7 +22,13 @@
 </script>
 
 {#if symbolInfo.type === 'sprite'}
-	<SymbolSprite {symbolInfo} x={props.x} y={props.y} oncomplete={props.oncomplete} />
+	<SymbolSprite
+		{symbolInfo}
+		state={props.state}
+		x={props.x}
+		y={props.y}
+		oncomplete={props.oncomplete}
+	/>
 {:else}
 	<SymbolSpine
 		loop={props.loop}

@@ -77,6 +77,8 @@ export const stateGame = $state({
 	gameType: 'basegame' as GameType,
 	multiplierBoard: [] as (MultiplierSymbol | undefined)[][],
 	scatterCounter: 0,
+	// win presentation: symbols that are not in the shown win are darker
+	symbolsDimmed: false,
 });
 
 // portrait: reels at the top under the logo, the pub scene with Rumbelly below them

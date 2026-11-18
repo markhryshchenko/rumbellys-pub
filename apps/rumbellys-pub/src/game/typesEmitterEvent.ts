@@ -8,6 +8,7 @@ import type { EmitterEventSound } from '../components/Sound.svelte';
 import type { EmitterEventTransition } from '../components/Transition.svelte';
 import type { EmitterEventBellyMeter } from '../components/BellyMeter.svelte';
 import type { EmitterEventMascot } from '../components/Mascot.svelte';
+import type { EmitterEventLineWinAmount } from '../components/LineWinAmount.svelte';
 
 export type EmitterEventGame =
 	| EmitterEventBoard
@@ -19,4 +20,5 @@ export type EmitterEventGame =
 	| EmitterEventSound
 	| EmitterEventTransition
 	| EmitterEventBellyMeter
-	| EmitterEventMascot;
+	| EmitterEventMascot
+	| EmitterEventLineWinAmount;

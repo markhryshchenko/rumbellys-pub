@@ -23,7 +23,11 @@ export const i18nDerived = {
 	freeSpinOf: (current: number, total: number) =>
 		stateI18nDerived.translate('{current} OF {total}', { current, total }),
 	loaderTips: () => LOADER_TIPS.map((tip) => stateI18nDerived.translate(tip)),
-	pressToContinue: () => stateI18nDerived.translate('PRESS ANYWHERE TO CONTINUE'),
+	// free spins intro / outro
+	bonusName: () => stateI18nDerived.translate("RUMBELLY'S ROUNDS"),
+	youWon: () => stateI18nDerived.translate('YOU WON'),
+	totalWin: () => stateI18nDerived.translate('TOTAL WIN'),
+	pressToContinue:() => stateI18nDerived.translate('PRESS ANYWHERE TO CONTINUE'),
 	// bet replay
 	replayPlay: () => stateI18nDerived.translate('PLAY'),
 	replayPlayAgain: () => stateI18nDerived.translate('PLAY AGAIN'),

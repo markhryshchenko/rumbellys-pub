@@ -14,7 +14,7 @@
 	const ASPECT = 184 / 260; // one frame (parrot.json frame size)
 	const HEIGHT = 260;
 	// standard 1920x1080 space, bottom aligned: on the floor left of the bottom UI row
-	const POSITION = { x: 350, y: 960 };
+	const POSITION = { x: 350, y: 1000 };
 	const START_DELAY = 3000;
 	const PAUSE = 3000;
 

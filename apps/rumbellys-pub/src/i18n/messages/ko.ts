@@ -45,6 +45,9 @@ export default {
 	'MEGA WIN': '메가 윈',
 	'EPIC WIN!': '에픽 윈!',
 	'MAX WIN': '최대 당첨',
+	// free spins intro / outro
+	'YOU WON': '획득',
+	'TOTAL WIN': '총 당첨금',
 	PLAY: '재생',
 	'PLAY AGAIN': '다시 재생',
 	'REAL COST': '실제 비용',

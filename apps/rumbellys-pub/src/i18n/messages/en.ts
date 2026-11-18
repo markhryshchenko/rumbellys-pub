@@ -50,6 +50,9 @@ const en = {
 	'MEGA WIN': 'MEGA WIN',
 	'EPIC WIN!': 'EPIC WIN!',
 	'MAX WIN': 'MAX WIN',
+	// free spins intro / outro
+	'YOU WON': 'YOU WON',
+	'TOTAL WIN': 'TOTAL WIN',
 	// bonus buy ("RUMBELLY'S ROUNDS" is the feature's name: same in every language)
 	"RUMBELLY'S ROUNDS": "RUMBELLY'S ROUNDS",
 	'BUY FREE SPINS FOR {price}?': 'BUY FREE SPINS FOR {price}?',

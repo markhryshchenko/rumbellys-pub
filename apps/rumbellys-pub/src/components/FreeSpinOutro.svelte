@@ -8,25 +8,23 @@
 </script>
 
 <script lang="ts">
-	import { Sprite, SpineProvider, SpineTrack, SpineSlot } from 'pixi-svelte';
-	import { FadeContainer, WinCountUpProvider, ResponsiveBitmapText } from 'components-pixi';
+	import { FadeContainer, WinCountUpProvider } from 'components-pixi';
 	import { bookEventAmountToCurrencyString } from 'utils-shared/amount';
 	import { waitForResolve } from 'utils-shared/wait';
 	import { CanvasSizeRectangle } from 'components-layout';
 	import { OnMount } from 'components-shared';
-	import { stateUrlDerived } from 'state-shared';
 
 	import { getContext } from '../game/context';
-	import FreeSpinAnimation from './FreeSpinAnimation.svelte';
+	import { TITLE_CREAM } from '../game/constants';
+	import { i18nDerived } from '../i18n/i18nDerived';
+	import FreeSpinAnimation, { FS_PANEL_TEXT } from './FreeSpinAnimation.svelte';
+	import TitleText from './TitleText.svelte';
 	import PressToContinue from './PressToContinue.svelte';
 	import WinCoins from './WinCoins.svelte';
-
-	type AnimationName = 'intro' | 'idle';
 
 	const context = getContext();
 
 	let show = $state(true);
-	let animationName = $state<AnimationName>('intro');
 	let amount = $state(0);
 	let winLevelData = $state<WinLevelData>();
 	let oncomplete = $state(() => {});
@@ -46,7 +44,6 @@
 <FadeContainer {show}>
 	{#if winLevelData}
 		{@const duration = winLevelData.presentDuration}
-		{@const isBigWin = winLevelData.type === 'big'}
 		<WinCountUpProvider {amount} {duration} oncomplete={() => onCountUpComplete()}>
 			{#snippet children({ countUpAmount, startCountUp, finishCountUp, countUpCompleted })}
 				<OnMount onmount={() => startCountUp()} />
@@ -54,50 +51,34 @@
 				<CanvasSizeRectangle backgroundColor={0x000000} backgroundAlpha={0.5} />
 
 				<FreeSpinAnimation>
-					{#snippet children({ sizes })}
-						{#if isBigWin}
-							<Sprite
-								anchor={{ x: 0.5, y: 1.2 }}
-								width={500 * 2.2}
-								height={156 * 2.2}
-								key="freespins_{stateUrlDerived.lang()}.png"
-							/>
-						{:else}
-							<Sprite
-								anchor={{ x: 0.5, y: 1.2 }}
-								width={500 * 4.5}
-								height={80 * 4.5}
-								key="winsmall_{stateUrlDerived.lang()}.png"
-							/>
-						{/if}
+					{#snippet children()}
+						<!-- RUMBELLY'S ROUNDS / YOU WON / amount / TOTAL WIN -->
+						<TitleText
+							text={i18nDerived.bonusName()}
+							{...FS_PANEL_TEXT.title}
+							maxWidth={FS_PANEL_TEXT.maxWidth}
+						/>
+						<TitleText
+							text={i18nDerived.youWon()}
+							{...FS_PANEL_TEXT.subtitle}
+							fill={TITLE_CREAM}
+							font="game"
+							maxWidth={FS_PANEL_TEXT.maxWidth}
+						/>
 
-						<SpineProvider key="fsOutroNumber" width={sizes.width * 0.4}>
-							<SpineTrack
-								trackIndex={0}
-								{animationName}
-								loop={animationName === 'idle'}
-								listener={{
-									complete: () => (animationName = 'idle'),
-								}}
-							/>
-							<SpineSlot slotName="slot_number">
-								<ResponsiveBitmapText
-									anchor={0.5}
-									style={{
-										fontFamily: 'gold',
-										fontSize: sizes.width * 0.08,
-									}}
-									text={bookEventAmountToCurrencyString(countUpAmount)}
-									maxWidth={sizes.width}
-								/>
-							</SpineSlot>
-						</SpineProvider>
+						<TitleText
+							text={bookEventAmountToCurrencyString(countUpAmount)}
+							y={FS_PANEL_TEXT.number.y}
+							fontSize={FS_PANEL_TEXT.number.fontSize * 0.8}
+							maxWidth={FS_PANEL_TEXT.maxWidth}
+						/>
 
-						<Sprite
-							anchor={{ x: 0.5, y: isBigWin ? -3.2 : -2 }}
-							width={177 * (isBigWin ? 2.2 : 3)}
-							height={42 * (isBigWin ? 2.2 : 3)}
-							key="totalwin.png"
+						<TitleText
+							text={i18nDerived.totalWin()}
+							{...FS_PANEL_TEXT.bottom}
+							fill={TITLE_CREAM}
+							font="game"
+							maxWidth={FS_PANEL_TEXT.maxWidth}
 						/>
 					{/snippet}
 				</FreeSpinAnimation>

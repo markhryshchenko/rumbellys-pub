@@ -12,6 +12,24 @@ export const GAME_TEXT_GOLD = { fill: 0xffd36b, stroke: { color: 0x2a160a, width
 // Title font of the game sign (bundled web font, Latin scripts only). Missing glyphs (Cyrillic,
 // CJK, Arabic, Devanagari, Vietnamese) are drawn by the next families in the list.
 export const TITLE_FONT_FAMILY = ['New Rocker', ...GAME_FONT_FAMILY];
+export const TITLE_GOLD = 0xffd36b;
+export const TITLE_CREAM = 0xfff1d6;
+
+// big win and free spins screens: sign font, dark outline and shadow
+export const titleTextStyle = (fontSize: number, fill: number = TITLE_GOLD) => ({
+	fontFamily: TITLE_FONT_FAMILY,
+	fontSize,
+	fill,
+	stroke: { color: 0x2a160a, width: fontSize * 0.12, join: 'round' as const },
+	dropShadow: {
+		color: 0x000000,
+		alpha: 0.6,
+		blur: 6,
+		distance: fontSize * 0.06,
+		angle: Math.PI / 2,
+	},
+	align: 'center' as const,
+});
 
 export const REEL_PADDING = 0.53;
 
@@ -109,6 +127,33 @@ export const BOARD_DIMENSIONS = { x: INITIAL_BOARD.length, y: INITIAL_BOARD[0].l
 export const BOARD_SIZES = {
 	width: SYMBOL_SIZE * BOARD_DIMENSIONS.x,
 	height: SYMBOL_SIZE * BOARD_DIMENSIONS.y,
+};
+
+// wooden reel frame built by art/tools/build_scene.py (9-slice); its opening = board + 4%.
+// Sizes in game units = image size / 2. Portrait gets a thinner frame (reels fill the width).
+export const REEL_FRAME = {
+	normal: { key: 'reelFrame', width: 765.5, height: 466 },
+	portrait: { key: 'reelFramePortrait', width: 676.5, height: 408 },
+};
+// planks behind the reels a little bigger than the board, so the frame covers their edges
+export const REEL_BACKGROUND_OVERLAP = 1.06;
+
+// Free spins side panel (desktop / landscape), board coordinates (0,0 = top left of the reels):
+// the free spin counter at the top, the mug meter under it, one dark backing behind both.
+export const FREE_SPIN_PANEL = {
+	x: -SYMBOL_SIZE * 2.75,
+	y: -SYMBOL_SIZE * 0.3,
+	width: SYMBOL_SIZE * 2.15,
+	counterHeight: SYMBOL_SIZE * 0.85, // "FREE SPINS" + "1 OF 10"
+	padding: SYMBOL_SIZE * 0.12,
+};
+// panel / strip backing behind the free spins counter and the mug meter
+export const FREE_SPIN_PANEL_STYLE = {
+	backgroundColor: 0x0d0603,
+	backgroundAlpha: 0.9,
+	borderColor: 0xc8902e,
+	borderWidth: 3,
+	borderRadius: SYMBOL_SIZE * 0.14,
 };
 
 export const BACKGROUND_RATIO = 2039 / 1000;
@@ -211,7 +256,6 @@ export const SYMBOL_INFO_MAP = {
 	W: allStates(sprite('w.png', SPECIAL_SYMBOL_SIZE)),
 	S: allStates(sprite('s.png', SPECIAL_SYMBOL_SIZE)),
 } as const;
-
 
 export const SCATTER_LAND_SOUND_MAP = {
 	1: 'sfx_scatter_stop_1',

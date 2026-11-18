@@ -45,6 +45,9 @@ export default {
 	'MEGA WIN': 'MEGA KAZANÇ',
 	'EPIC WIN!': 'EFSANEVİ KAZANÇ!',
 	'MAX WIN': 'MAKSİMUM KAZANÇ',
+	// free spins intro / outro
+	'YOU WON': 'KAZANDINIZ',
+	'TOTAL WIN': 'TOPLAM KAZANÇ',
 	PLAY: 'OYNAT',
 	'PLAY AGAIN': 'TEKRAR OYNAT',
 	'REAL COST': 'GERÇEK MALİYET',

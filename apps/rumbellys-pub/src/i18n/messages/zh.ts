@@ -46,6 +46,9 @@ export default {
 	'MEGA WIN': '巨奖',
 	'EPIC WIN!': '史诗大奖！',
 	'MAX WIN': '最高奖',
+	// free spins intro / outro
+	'YOU WON': '恭喜获得',
+	'TOTAL WIN': '总奖金',
 	PLAY: '播放',
 	'PLAY AGAIN': '再次播放',
 	'REAL COST': '实际花费',

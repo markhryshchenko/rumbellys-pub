@@ -1,65 +1,65 @@
-<script lang="ts">
-	import type { Snippet } from 'svelte';
+<script lang="ts" module>
+	// Text lines on the free spins panel, in panel space (0,0 = panel centre, game units).
+	export const FS_PANEL_TEXT = {
+		maxWidth: 460, // the frame opening is ~500 wide
+		title: { y: -110, fontSize: 52 }, // RUMBELLY'S ROUNDS
+		subtitle: { y: -52, fontSize: 36 }, // YOU WON
+		number: { y: 22, fontSize: 92 }, // 10 / win amount
+		bottom: { y: 105, fontSize: 40 }, // FREE SPINS / TOTAL WIN
+	};
+</script>
 
-	import {
-		anchorToPivot,
-		Container,
-		SpineProvider,
-		SpineSlot,
-		SpineTrack,
-		type Sizes,
-	} from 'pixi-svelte';
+<script lang="ts">
+	import { onMount, type Snippet } from 'svelte';
+	import { Tween } from 'svelte/motion';
+	import { backOut } from 'svelte/easing';
+
+	import { Container, Sprite } from 'pixi-svelte';
 	import { MainContainer } from 'components-layout';
 
+	import GoldGlow from './GoldGlow.svelte';
 	import { getContext } from '../game/context';
-	import { SYMBOL_SIZE, BOARD_DIMENSIONS } from '../game/constants';
+	import { BOARD_SIZES, REEL_BACKGROUND_OVERLAP, REEL_FRAME } from '../game/constants';
 
 	type Props = {
-		children: Snippet<[{ sizes: Sizes }]>;
+		children: Snippet;
 	};
 
 	const props: Props = $props();
-
-	type AnimationName = 'intro' | 'idle';
-
 	const context = getContext();
-	const BACKGROUND_RATIO = 920 / 720;
-	const BACKGROUND_WIDTH = SYMBOL_SIZE * BOARD_DIMENSIONS.x;
-	const BACKGROUND_SIZES = {
-		width: BACKGROUND_WIDTH,
-		height: BACKGROUND_WIDTH / BACKGROUND_RATIO,
-	};
-	const PANEL_SIZES = {
-		width: SYMBOL_SIZE * BOARD_DIMENSIONS.x,
-		height: SYMBOL_SIZE * BOARD_DIMENSIONS.x,
-	};
 
-	let animationName = $state<AnimationName>('intro');
+	// Free spins intro / outro panel: the reel frame and planks of the main game, smaller,
+	// with a warm lantern glow behind it (the web-sdk sample spine `fsIntro` is no longer used).
+	const PANEL_SCALE = 0.8;
+
+	const frame = $derived(
+		context.stateLayoutDerived.layoutType() === 'portrait' ? REEL_FRAME.portrait : REEL_FRAME.normal,
+	);
+
+	// pop in
+	const scale = new Tween(0.6, { duration: 450, easing: backOut });
+	onMount(() => {
+		scale.set(1);
+	});
 </script>
 
 <MainContainer>
 	<Container
 		x={context.stateGameDerived.boardLayout().x}
 		y={context.stateGameDerived.boardLayout().y}
-		pivot={anchorToPivot({ anchor: 0.5, sizes: BACKGROUND_SIZES })}
+		scale={scale.current}
 	>
-		<SpineProvider
-			key="fsIntro"
-			width={PANEL_SIZES.width}
-			x={PANEL_SIZES.width * 0.5}
-			y={PANEL_SIZES.height * 0.4}
-		>
-			<SpineTrack
-				trackIndex={0}
-				{animationName}
-				loop={animationName === 'idle'}
-				listener={{
-					complete: () => (animationName = 'idle'),
-				}}
+		<GoldGlow width={frame.width * 1.7} height={frame.width * 1.7} />
+		<Container scale={PANEL_SCALE}>
+			<Sprite
+				key="reelBackground"
+				anchor={0.5}
+				width={BOARD_SIZES.width * REEL_BACKGROUND_OVERLAP}
+				height={BOARD_SIZES.height * REEL_BACKGROUND_OVERLAP}
 			/>
-			<SpineSlot slotName="slot_text_placeholder">
-				{@render props.children({ sizes: BACKGROUND_SIZES })}
-			</SpineSlot>
-		</SpineProvider>
+			<Sprite key={frame.key} anchor={0.5} width={frame.width} height={frame.height} />
+		</Container>
+
+		{@render props.children()}
 	</Container>
 </MainContainer>

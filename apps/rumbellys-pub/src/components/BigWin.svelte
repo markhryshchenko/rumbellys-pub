@@ -6,7 +6,7 @@
 	import { stateI18nDerived } from 'state-shared';
 
 	import { getContext } from '../game/context';
-	import { SYMBOL_SIZE, TITLE_FONT_FAMILY } from '../game/constants';
+	import { SYMBOL_SIZE, titleTextStyle } from '../game/constants';
 	import { winLevelMap, type WinLevel } from '../game/winLevelMap';
 
 	type Props = {
@@ -69,14 +69,7 @@
 	const fit = (sizes: Sizes, max: Sizes) =>
 		Math.min(1, sizes.width ? max.width / sizes.width : 1, sizes.height ? max.height / sizes.height : 1);
 
-	const textStyle = (fontSize: number) => ({
-		fontFamily: TITLE_FONT_FAMILY,
-		fontSize,
-		fill: 0xffd36b,
-		stroke: { color: 0x2a160a, width: fontSize * 0.12, join: 'round' as const },
-		dropShadow: { color: 0x000000, alpha: 0.6, blur: 6, distance: fontSize * 0.06, angle: Math.PI / 2 },
-		align: 'center' as const,
-	});
+	const textStyle = (fontSize: number) => titleTextStyle(fontSize);
 </script>
 
 <!-- wooden sign with the level title; the whole sign "punches" on every new level -->

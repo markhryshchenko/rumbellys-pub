@@ -45,6 +45,9 @@ export default {
 	'MEGA WIN': 'MEGA GANANCIA',
 	'EPIC WIN!': '¡GANANCIA ÉPICA!',
 	'MAX WIN': 'GANANCIA MÁXIMA',
+	// free spins intro / outro
+	'YOU WON': 'HAS GANADO',
+	'TOTAL WIN': 'GANANCIA TOTAL',
 	PLAY: 'REPRODUCIR',
 	'PLAY AGAIN': 'VOLVER A REPRODUCIR',
 	'REAL COST': 'COSTE REAL',

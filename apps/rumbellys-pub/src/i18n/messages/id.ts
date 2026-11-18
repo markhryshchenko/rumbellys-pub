@@ -45,6 +45,9 @@ export default {
 	'MEGA WIN': 'MENANG MEGA',
 	'EPIC WIN!': 'MENANG EPIK!',
 	'MAX WIN': 'MENANG MAKSIMAL',
+	// free spins intro / outro
+	'YOU WON': 'ANDA MENANG',
+	'TOTAL WIN': 'TOTAL KEMENANGAN',
 	PLAY: 'PUTAR',
 	'PLAY AGAIN': 'PUTAR LAGI',
 	'REAL COST': 'BIAYA SEBENARNYA',

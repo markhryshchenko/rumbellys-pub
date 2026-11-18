@@ -45,6 +45,9 @@ export default {
 	'MEGA WIN': 'МЕГАВЫИГРЫШ',
 	'EPIC WIN!': 'ЭПИЧЕСКИЙ ВЫИГРЫШ!',
 	'MAX WIN': 'МАКСИМАЛЬНЫЙ ВЫИГРЫШ',
+	// free spins intro / outro
+	'YOU WON': 'ВЫ ВЫИГРАЛИ',
+	'TOTAL WIN': 'ОБЩИЙ ВЫИГРЫШ',
 	PLAY: 'СМОТРЕТЬ',
 	'PLAY AGAIN': 'СМОТРЕТЬ СНОВА',
 	'REAL COST': 'РЕАЛЬНАЯ СТОИМОСТЬ',

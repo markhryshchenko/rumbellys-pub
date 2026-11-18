@@ -7,73 +7,67 @@
 
 <script lang="ts">
 	import { CanvasSizeRectangle } from 'components-layout';
-	import { stateUrlDerived } from 'state-shared';
 	import { FadeContainer } from 'components-pixi';
 	import { waitForResolve } from 'utils-shared/wait';
-	import { BitmapText, SpineProvider, SpineSlot, SpineTrack, Sprite } from 'pixi-svelte';
 
 	import { getContext } from '../game/context';
+	import { TITLE_CREAM } from '../game/constants';
+	import { i18nDerived } from '../i18n/i18nDerived';
 	import PressToContinue from './PressToContinue.svelte';
-	import FreeSpinAnimation from './FreeSpinAnimation.svelte';
-
-	type AnimationName = 'intro' | 'idle';
+	import FreeSpinAnimation, { FS_PANEL_TEXT } from './FreeSpinAnimation.svelte';
+	import TitleText from './TitleText.svelte';
 
 	const context = getContext();
 
 	let show = $state(false);
-	let animationName = $state<AnimationName>('intro');
 	let freeSpinsFromEvent = $state(0);
 	let oncomplete = $state(() => {});
 
 	context.eventEmitter.subscribeOnMount({
-		freeSpinIntroShow: () => (show = true),
+		freeSpinIntroShow: () => {
+			show = true;
+			context.eventEmitter.broadcast({ type: 'mascotCheer' });
+		},
 		freeSpinIntroHide: () => (show = false),
 		freeSpinIntroUpdate: async (emitterEvent) => {
-			// if (emitterEvent.extraSpins) {
-			// 	context.eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_fs_respins' });
-			// }
-			// freeSpinsFromEvent = emitterEvent.extraSpins ?? emitterEvent.totalFreeSpins;
 			freeSpinsFromEvent = emitterEvent.totalFreeSpins;
 			await waitForResolve((resolve) => (oncomplete = resolve));
 		},
 	});
 </script>
 
+<!-- RUMBELLY'S ROUNDS / YOU WON / 10 / FREE SPINS: text in the sign font, every language -->
 <FadeContainer {show}>
 	<CanvasSizeRectangle backgroundColor={0x000000} backgroundAlpha={0.5} />
 
 	<FreeSpinAnimation>
-		{#snippet children({ sizes })}
-			<Sprite
-				anchor={{ x: 0.5, y: 1.2 }}
-				width={500 * 2.2}
-				height={156 * 2.2}
-				key="freespins_{stateUrlDerived.lang()}.png"
+		{#snippet children()}
+			<TitleText
+				text={i18nDerived.bonusName()}
+				{...FS_PANEL_TEXT.title}
+				maxWidth={FS_PANEL_TEXT.maxWidth}
+			/>
+			<TitleText
+				text={i18nDerived.youWon()}
+				{...FS_PANEL_TEXT.subtitle}
+				fill={TITLE_CREAM}
+				font="game"
+				maxWidth={FS_PANEL_TEXT.maxWidth}
 			/>
 
-			<SpineProvider key="fsIntroNumber" width={sizes.width * 0.3}>
-				<SpineTrack
-					trackIndex={0}
-					{animationName}
-					loop={animationName === 'idle'}
-					listener={{
-						complete: () => (animationName = 'idle'),
-					}}
-				/>
-				<SpineSlot slotName="slot_number">
-					<BitmapText
-						anchor={{ x: 0.5, y: 0.5 }}
-						text={freeSpinsFromEvent}
-						style={{
-							fontFamily: 'gold',
-							fontSize: sizes.width * 0.1,
-							fontWeight: 'bold',
-						}}
-					/>
-				</SpineSlot>
-			</SpineProvider>
+			<TitleText
+				text={freeSpinsFromEvent}
+				{...FS_PANEL_TEXT.number}
+				maxWidth={FS_PANEL_TEXT.maxWidth}
+			/>
 
-			<Sprite anchor={{ x: 0.5, y: -3 }} width={183 * 2.2} height={42 * 2.2} key="freespins.png" />
+			<TitleText
+				text={i18nDerived.freeSpins()}
+				{...FS_PANEL_TEXT.bottom}
+				fill={TITLE_CREAM}
+				font="game"
+				maxWidth={FS_PANEL_TEXT.maxWidth}
+			/>
 		{/snippet}
 	</FreeSpinAnimation>
 

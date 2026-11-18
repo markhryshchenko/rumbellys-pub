@@ -45,6 +45,9 @@ export default {
 	'MEGA WIN': 'MEGAGEVINST',
 	'EPIC WIN!': 'EPISK GEVINST!',
 	'MAX WIN': 'MAKSGEVINST',
+	// free spins intro / outro
+	'YOU WON': 'DU VANDT',
+	'TOTAL WIN': 'SAMLET GEVINST',
 	PLAY: 'AFSPIL',
 	'PLAY AGAIN': 'AFSPIL IGEN',
 	'REAL COST': 'REEL PRIS',

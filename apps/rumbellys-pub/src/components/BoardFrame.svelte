@@ -5,21 +5,13 @@
 </script>
 
 <script lang="ts">
-	import { Sprite, SpineProvider, SpineTrack } from 'pixi-svelte';
+	import { Sprite } from 'pixi-svelte';
 
+	import GoldGlow from './GoldGlow.svelte';
 	import { getContext } from '../game/context';
+	import { REEL_BACKGROUND_OVERLAP, REEL_FRAME as FRAME } from '../game/constants';
 
 	const context = getContext();
-	const SPINE_SCALE = { width: 0.62, height: 0.66 };
-	const POSITION_ADJUSTMENT = 1.01;
-	// wooden frame built by art/tools/build_scene.py (9-slice); its opening = board + 4%.
-	// Sizes in game units = image size / 2. Portrait gets a thinner frame (reels fill the width).
-	const FRAME = {
-		normal: { key: 'reelFrame', width: 765.5, height: 466 },
-		portrait: { key: 'reelFramePortrait', width: 676.5, height: 408 },
-	};
-	// planks a little bigger than the board, so the frame covers their edges
-	const REEL_BACKGROUND_OVERLAP = 1.06;
 	// game title: the loading screen's sign, hanging over the top of the frame
 	const SIGN_ASPECT = 1100 / 314; // loaderSign (art/tools/build_scene.py)
 	const SIGN_WIDTH_OF_FRAME = 0.62;
@@ -35,53 +27,23 @@
 		return { width, height, y: frameTop - height * (0.5 - SIGN_OVER_FRAME) };
 	});
 
-	type AnimationName = 'reelhouse_glow_start' | 'reelhouse_glow_idle' | 'reelhouse_glow_exit';
-
-	let animationName = $state<AnimationName | undefined>(undefined);
-	let loop = $state(false);
+	// free spins: warm lantern glow around the frame (the web-sdk sample purple spine
+	// `reelhouse` is no longer used)
+	let glow = $state(false);
 
 	context.eventEmitter.subscribeOnMount({
-		boardFrameGlowShow: () => {
-			animationName = 'reelhouse_glow_start';
-			loop = false;
-		},
-		boardFrameGlowHide: () => {
-			if (animationName) animationName = 'reelhouse_glow_exit';
-		},
+		boardFrameGlowShow: () => (glow = true),
+		boardFrameGlowHide: () => (glow = false),
 	});
 </script>
 
-{#if animationName}
-	<SpineProvider
-		zIndex={-1}
-		key="reelhouse"
-		x={context.stateGameDerived.boardLayout().x * POSITION_ADJUSTMENT}
-		y={context.stateGameDerived.boardLayout().y * POSITION_ADJUSTMENT}
-		width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width}
-		height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height}
-	>
-		<SpineTrack
-			trackIndex={0}
-			{animationName}
-			{loop}
-			listener={{
-				complete: (entry) => {
-					if (entry.animation) {
-						if (entry.animation.name === 'reelhouse_glow_start') {
-							animationName = 'reelhouse_glow_idle';
-							loop = true;
-						}
-
-						if (entry.animation.name === 'reelhouse_glow_exit') {
-							animationName = undefined;
-							loop = false;
-						}
-					}
-				},
-			}}
-		/>
-	</SpineProvider>
-{/if}
+<GoldGlow
+	show={glow}
+	x={context.stateGameDerived.boardLayout().x}
+	y={context.stateGameDerived.boardLayout().y}
+	width={frame.width * 1.45}
+	height={frame.height * 1.6}
+/>
 
 <!-- dark wood behind the reels -->
 <Sprite

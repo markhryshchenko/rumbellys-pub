@@ -9,31 +9,25 @@
 	import { MainContainer } from 'components-layout';
 	import { FadeContainer } from 'components-pixi';
 
+	import BoardContainer from './BoardContainer.svelte';
 	import { getContext } from '../game/context';
-	import { GAME_FONT_FAMILY, GAME_TEXT_GOLD, SYMBOL_SIZE } from '../game/constants';
+	import {
+		FREE_SPIN_PANEL,
+		GAME_FONT_FAMILY,
+		GAME_TEXT_GOLD,
+		SYMBOL_SIZE,
+	} from '../game/constants';
 	import { i18nDerived } from '../i18n/i18nDerived';
-	import { anchorToPivot, Container, Sprite, Text, type Sizes } from 'pixi-svelte';
+	import { anchorToPivot, Container, Text, type Sizes } from 'pixi-svelte';
 
 	const context = getContext();
-	const PANEL_KEY_DESKTOP = 'Frame_FSCounter.png';
-	const PANEL_RATIO_DESKTOP = 824 / 622;
-	const panelKey = PANEL_KEY_DESKTOP;
-	const panelWidth = $derived(SYMBOL_SIZE * 2);
-	const panelSizes = $derived({
-		width: panelWidth,
-		height: panelWidth / PANEL_RATIO_DESKTOP,
-	});
-	const scale = 1;
-	const position = $derived({
-		x:
-			context.stateGameDerived.boardLayout().x -
-			context.stateGameDerived.boardLayout().width * 0.5 -
-			panelSizes.width -
-			SYMBOL_SIZE * 0.7,
-		y:
-			context.stateGameDerived.boardLayout().y -
-			context.stateGameDerived.boardLayout().height * 0.5,
-	});
+	// top part of the free spins side panel; the dark backing is drawn by BellyMeter
+	// (the web-sdk sample frame `Frame_FSCounter.png` is no longer used)
+	const center = {
+		x: FREE_SPIN_PANEL.x + FREE_SPIN_PANEL.width / 2,
+		y: FREE_SPIN_PANEL.y + FREE_SPIN_PANEL.padding / 2 + FREE_SPIN_PANEL.counterHeight / 2,
+	};
+	const maxWidth = FREE_SPIN_PANEL.width - FREE_SPIN_PANEL.padding * 2;
 
 	const fontSize = SYMBOL_SIZE * 0.275;
 
@@ -60,39 +54,40 @@
 </script>
 
 <MainContainer>
-	<FadeContainer {show} {...position} {scale}>
-		<Sprite key={panelKey} {...panelSizes} />
-		<Container
-			x={panelSizes.width * 0.5}
-			y={panelSizes.height * 0.48}
-			pivot={anchorToPivot({
-				sizes: textContainerSizes,
-				anchor: { x: 0.5, y: 0.5 },
-			})}
-		>
-			<Text
-				text={i18nDerived.freeSpins()}
-				style={{
-					...GAME_TEXT_GOLD,
-					fontFamily: GAME_FONT_FAMILY,
-					fontSize,
-					fontWeight: 'bold',
-					wordWrap: false,
-				}}
-				onresize={(sizes) => (titleSizes = sizes)}
-			/>
-			<Text
-				text={i18nDerived.freeSpinOf(current, total)}
-				{...counterPosition}
-				anchor={{ x: 0.5, y: 0 }}
-				style={{
-					...GAME_TEXT_GOLD,
-					fontFamily: GAME_FONT_FAMILY,
-					fontSize,
-					fontWeight: 'bold',
-				}}
-				onresize={(sizes) => (counterSizes = sizes)}
-			/>
-		</Container>
-	</FadeContainer>
+	<BoardContainer>
+		<FadeContainer {show}>
+			<Container
+				{...center}
+				scale={textContainerSizes.width > maxWidth ? maxWidth / textContainerSizes.width : 1}
+				pivot={anchorToPivot({
+					sizes: textContainerSizes,
+					anchor: { x: 0.5, y: 0.5 },
+				})}
+			>
+				<Text
+					text={i18nDerived.freeSpins()}
+					style={{
+						...GAME_TEXT_GOLD,
+						fontFamily: GAME_FONT_FAMILY,
+						fontSize,
+						fontWeight: 'bold',
+						wordWrap: false,
+					}}
+					onresize={(sizes) => (titleSizes = sizes)}
+				/>
+				<Text
+					text={i18nDerived.freeSpinOf(current, total)}
+					{...counterPosition}
+					anchor={{ x: 0.5, y: 0 }}
+					style={{
+						...GAME_TEXT_GOLD,
+						fontFamily: GAME_FONT_FAMILY,
+						fontSize,
+						fontWeight: 'bold',
+					}}
+					onresize={(sizes) => (counterSizes = sizes)}
+				/>
+			</Container>
+		</FadeContainer>
+	</BoardContainer>
 </MainContainer>

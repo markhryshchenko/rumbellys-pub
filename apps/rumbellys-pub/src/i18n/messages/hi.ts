@@ -45,6 +45,9 @@ export default {
 	'MEGA WIN': 'मेगा जीत',
 	'EPIC WIN!': 'शानदार जीत!',
 	'MAX WIN': 'अधिकतम जीत',
+	// free spins intro / outro
+	'YOU WON': 'आपने जीते',
+	'TOTAL WIN': 'कुल जीत',
 	PLAY: 'चलाएँ',
 	'PLAY AGAIN': 'फिर से चलाएँ',
 	'REAL COST': 'वास्तविक लागत',

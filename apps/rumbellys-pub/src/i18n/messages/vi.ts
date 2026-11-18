@@ -45,6 +45,9 @@ export default {
 	'MEGA WIN': 'THẮNG KHỦNG',
 	'EPIC WIN!': 'THẮNG HUYỀN THOẠI!',
 	'MAX WIN': 'THẮNG TỐI ĐA',
+	// free spins intro / outro
+	'YOU WON': 'BẠN THẮNG',
+	'TOTAL WIN': 'TỔNG THẮNG',
 	PLAY: 'PHÁT',
 	'PLAY AGAIN': 'PHÁT LẠI',
 	'REAL COST': 'CHI PHÍ THỰC',

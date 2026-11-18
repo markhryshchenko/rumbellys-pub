@@ -5,7 +5,13 @@
 		| { type: 'bellyMeterShow' }
 		| { type: 'bellyMeterHide' }
 		| { type: 'bellyMeterSet'; mugs: number; level: number }
-		| { type: 'bellyMeterDrink'; positions: Position[]; mugs: number; level: number; levelUp: boolean };
+		| {
+				type: 'bellyMeterDrink';
+				positions: Position[];
+				mugs: number;
+				level: number;
+				levelUp: boolean;
+		  };
 </script>
 
 <script lang="ts">
@@ -13,14 +19,19 @@
 	import { Tween } from 'svelte/motion';
 	import { cubicIn } from 'svelte/easing';
 
-	import { BitmapText, Container, Sprite } from 'pixi-svelte';
+	import { BitmapText, Container, Rectangle, Sprite } from 'pixi-svelte';
 	import { FadeContainer } from 'components-pixi';
 	import { stateBetDerived } from 'state-shared';
 	import { waitForTimeout } from 'utils-shared/wait';
 
 	import BoardContainer from './BoardContainer.svelte';
 	import { getContext } from '../game/context';
-	import { BOARD_SIZES, SYMBOL_SIZE } from '../game/constants';
+	import {
+		BOARD_SIZES,
+		FREE_SPIN_PANEL,
+		FREE_SPIN_PANEL_STYLE,
+		SYMBOL_SIZE,
+	} from '../game/constants';
 	import { getSymbolX, getSymbolY } from '../game/utils';
 
 	// Rumbelly's Belly: 4 groups of 4 mugs, each group unlocks the next multiplier.
@@ -31,19 +42,29 @@
 	const FLY_DURATION = 450;
 
 	type Point = { x: number; y: number };
-	type Geometry = { mugSize: number; slots: Point[]; labels: Point[] };
+	type Rect = { x: number; y: number; width: number; height: number };
+	type Geometry = { mugSize: number; slots: Point[]; labels: Point[]; backing: Rect };
 
-	// desktop / landscape: left of the reels, under the free spin counter; groups fill from the bottom up
+	// desktop / landscape: left of the reels, under the free spin counter (FREE_SPIN_PANEL);
+	// groups fill from the bottom up
 	const sideGeometry = (): Geometry => {
-		const mugSize = SYMBOL_SIZE * 0.36;
+		const panel = FREE_SPIN_PANEL;
+		const mugSize = SYMBOL_SIZE * 0.33;
 		const gap = mugSize * 1.08;
 		const rowHeight = mugSize * 1.2;
-		const meterX = -(gap * MUGS_PER_LEVEL + SYMBOL_SIZE * 0.55) - SYMBOL_SIZE * 0.35;
-		const meterY = SYMBOL_SIZE * 1.55;
+		const meterX = panel.x + panel.padding;
+		const meterY = panel.y + panel.counterHeight;
 		const rowY = (group: number) =>
 			meterY + (MULTIPLIERS.length - 1 - group) * rowHeight + mugSize / 2;
 		return {
 			mugSize,
+			// one backing for the counter and the meter
+			backing: {
+				x: panel.x,
+				y: panel.y,
+				width: panel.width,
+				height: panel.counterHeight + MULTIPLIERS.length * rowHeight + panel.padding,
+			},
 			slots: _.range(SLOT_COUNT).map((index) => ({
 				x: meterX + (index % MUGS_PER_LEVEL) * gap + mugSize / 2,
 				y: rowY(Math.floor(index / MUGS_PER_LEVEL)),
@@ -62,10 +83,13 @@
 		const gap = mugSize * 1.04;
 		const y = BOARD_SIZES.height + SYMBOL_SIZE * 0.55;
 		const groupX = (group: number) => group * groupWidth + mugSize * 0.3;
+		const backingHeight = mugSize * 1.7;
 		return {
 			mugSize,
+			backing: { x: 0, y: y - backingHeight / 2, width: BOARD_SIZES.width, height: backingHeight },
 			slots: _.range(SLOT_COUNT).map((index) => ({
-				x: groupX(Math.floor(index / MUGS_PER_LEVEL)) + (index % MUGS_PER_LEVEL) * gap + mugSize / 2,
+				x:
+					groupX(Math.floor(index / MUGS_PER_LEVEL)) + (index % MUGS_PER_LEVEL) * gap + mugSize / 2,
 				y,
 			})),
 			labels: MULTIPLIERS.map((_multiplier, group) => ({
@@ -79,9 +103,7 @@
 	const STRIP = stripGeometry();
 
 	const context = getContext();
-	const geometry = $derived(
-		context.stateLayoutDerived.layoutType() === 'portrait' ? STRIP : SIDE,
-	);
+	const geometry = $derived(context.stateLayoutDerived.layoutType() === 'portrait' ? STRIP : SIDE);
 
 	let show = $state(false);
 	let filled = $state(0);
@@ -97,7 +119,10 @@
 		const mug = {
 			id,
 			x: new Tween(getSymbolX(position.reel), { duration: timed(FLY_DURATION), easing: cubicIn }),
-			y: new Tween(getSymbolY(position.row - 1), { duration: timed(FLY_DURATION), easing: cubicIn }),
+			y: new Tween(getSymbolY(position.row - 1), {
+				duration: timed(FLY_DURATION),
+				easing: cubicIn,
+			}),
 		};
 		flying.push(mug);
 		await Promise.all([mug.x.set(target.x), mug.y.set(target.y)]);
@@ -137,6 +162,9 @@
 
 <FadeContainer {show}>
 	<BoardContainer>
+		<!-- dark backing: the mugs and the counter must not blend into the pub background -->
+		<Rectangle {...geometry.backing} {...FREE_SPIN_PANEL_STYLE} />
+
 		{#each MULTIPLIERS as multiplier, group}
 			<BitmapText
 				anchor={{ x: 0, y: 0.5 }}

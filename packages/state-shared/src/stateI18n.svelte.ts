@@ -13,7 +13,8 @@ export const stateI18nDerived = {
 	// `value` is the English source text (message id); `values` fill placeholders like {total}.
 	// Messages are loaded raw (not compiled by Lingui), so placeholders are replaced here.
 	translate: (value: string, values?: Record<string, string | number>) => {
-		const text = stateI18n.i18n._(value);
+		// values must go to Lingui: without them it drops the {placeholders} ("{a} OF {b}" -> " OF ")
+		const text = stateI18n.i18n._(value, values);
 		if (!values) return text;
 		return text.replace(/\{(\w+)\}/g, (match, key) => (key in values ? `${values[key]}` : match));
 	},

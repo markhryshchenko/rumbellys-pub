@@ -9,10 +9,8 @@ export function recordBookEvent<TBookEvent extends BaseBookEvent>({
 }: {
 	bookEvent: TBookEvent;
 }) {
-	if (PUBLIC_CHROMATIC || stateUrlDerived.replay()) {
-		console.log('mock request end-event:', { index: bookEvent.index, type: bookEvent.type });
-		return;
-	}
+	// no wallet calls in Chromatic and bet replay; no logging (Engine: no game data in the console)
+	if (PUBLIC_CHROMATIC || stateUrlDerived.replay()) return;
 
 	try {
 		requestEndEvent({

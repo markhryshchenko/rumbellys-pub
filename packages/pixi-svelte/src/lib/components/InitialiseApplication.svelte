@@ -41,7 +41,8 @@
 
 		// to prevent that you can't scroll the page with touch on the canvas. https://github.com/pixijs/pixijs/issues/4824
 		app.renderer.events.autoPreventDefault = false;
-		app.renderer.canvas.style.touchAction = 'auto';
+		// "manipulation": scrolling still works, double-tap zoom is off (Engine requirement)
+		app.renderer.canvas.style.touchAction = 'manipulation';
 	};
 
 	onMount(async () => {

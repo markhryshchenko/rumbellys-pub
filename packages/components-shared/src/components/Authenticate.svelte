@@ -11,6 +11,7 @@
 		stateReplay,
 	} from 'state-shared';
 	import { API_AMOUNT_MULTIPLIER, MOST_USED_BET_INDEXES } from 'constants-shared/bet';
+	import { pickDefaultBet } from 'utils-shared/betLevel';
 
 	type Props = { children: Snippet };
 
@@ -73,6 +74,16 @@
 				stateConfig.betMenuOptions = stateConfig.betAmountOptions.filter((_, index) =>
 					MOST_USED_BET_INDEXES.includes(index),
 				);
+				// default bet from the RGS; an active round below sets its own bet
+				const defaultBet =
+					pickDefaultBet(
+						authenticateData.config?.betLevels || [],
+						authenticateData.config?.defaultBetLevel,
+					) / API_AMOUNT_MULTIPLIER;
+				if (defaultBet > 0) {
+					stateBet.betAmount = defaultBet;
+					stateBet.wageredBetAmount = defaultBet;
+				}
 			}
 
 			// round

@@ -302,6 +302,18 @@ export default {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/sabresWin/sabresWin.json', import.meta.url).href,
 	},
+	rumWin: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/rumWin/rumWin.json', import.meta.url).href,
+	},
+	fishWin: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/fishWin/fishWin.json', import.meta.url).href,
+	},
+	scatterWin: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/scatterWin/scatterWin.json', import.meta.url).href,
+	},
 	// wooden sign behind the big win title (art/tools/bigwin_sign.py)
 	bigWinSign: {
 		type: 'sprite',

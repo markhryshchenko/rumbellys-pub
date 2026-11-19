@@ -1,0 +1,256 @@
+{
+ "frames": {
+  "scatterWin_00": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_01": {
+   "frame": {
+    "x": 244,
+    "y": 2,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_02": {
+   "frame": {
+    "x": 486,
+    "y": 2,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_03": {
+   "frame": {
+    "x": 728,
+    "y": 2,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_04": {
+   "frame": {
+    "x": 2,
+    "y": 244,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_05": {
+   "frame": {
+    "x": 244,
+    "y": 244,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_06": {
+   "frame": {
+    "x": 486,
+    "y": 244,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_07": {
+   "frame": {
+    "x": 728,
+    "y": 244,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_08": {
+   "frame": {
+    "x": 2,
+    "y": 486,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_09": {
+   "frame": {
+    "x": 244,
+    "y": 486,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_10": {
+   "frame": {
+    "x": 486,
+    "y": 486,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  },
+  "scatterWin_11": {
+   "frame": {
+    "x": 728,
+    "y": 486,
+    "w": 240,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 240,
+    "h": 240
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/symbol_anim.py",
+  "image": "scatterWin.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 970,
+   "h": 728
+  },
+  "scale": "1",
+  "fps": 6.0,
+  "cellScale": 1.2
+ }
+}

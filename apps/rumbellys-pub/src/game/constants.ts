@@ -221,7 +221,8 @@ export const zIndexes = {
 type SizeRatios = { width: number; height: number };
 // win animation frames "<prefix>_00".. (art/tools/symbol_anim.py); a frame is cellScale x the symbol
 // size, frame 0 covers the static symbol
-export type WinFrames = { prefix: string; count: number; cellScale: number };
+// hop: the symbol also jumps twice and shudders (code, see SymbolSprite.svelte)
+export type WinFrames = { prefix: string; count: number; cellScale: number; hop?: boolean };
 export type SpriteSymbolInfo = {
 	type: 'sprite';
 	assetKey: string;
@@ -273,13 +274,21 @@ export const SYMBOL_INFO_MAP = {
 		count: 15,
 		cellScale: 1.2,
 	}),
-	H4: allStates(sprite('h4.webp', HIGH_SYMBOL_SIZE)),
+	H4: withWinFrames(sprite('h4.webp', HIGH_SYMBOL_SIZE), {
+		prefix: 'rumWin',
+		count: 12,
+		cellScale: 1.5, // bigger cell: the cork pops up high
+	}),
 	H5: withWinFrames(sprite('h5.webp', HIGH_SYMBOL_SIZE), {
 		prefix: 'mugWin',
 		count: 10,
 		cellScale: 1.2,
 	}),
-	L1: allStates(sprite('l1.webp', LOW_SYMBOL_SIZE)),
+	L1: withWinFrames(sprite('l1.webp', LOW_SYMBOL_SIZE), {
+		prefix: 'fishWin',
+		count: 10,
+		cellScale: 1.2,
+	}),
 	L2: allStates(sprite('l2.webp', LOW_SYMBOL_SIZE)),
 	L3: allStates(sprite('l3.webp', LOW_SYMBOL_SIZE)),
 	L4: allStates(sprite('l4.webp', LOW_SYMBOL_SIZE)),
@@ -289,7 +298,12 @@ export const SYMBOL_INFO_MAP = {
 		count: 15,
 		cellScale: 1.2,
 	}),
-	S: allStates(sprite('s.png', SPECIAL_SYMBOL_SIZE)),
+	S: withWinFrames(sprite('s.png', SPECIAL_SYMBOL_SIZE), {
+		prefix: 'scatterWin',
+		count: 12,
+		cellScale: 1.2,
+		hop: true,
+	}),
 } as const;
 
 export const SCATTER_LAND_SOUND_MAP = {

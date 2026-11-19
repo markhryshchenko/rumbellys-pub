@@ -1,0 +1,256 @@
+{
+ "frames": {
+  "rumWin_00": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_01": {
+   "frame": {
+    "x": 304,
+    "y": 2,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_02": {
+   "frame": {
+    "x": 606,
+    "y": 2,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_03": {
+   "frame": {
+    "x": 908,
+    "y": 2,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_04": {
+   "frame": {
+    "x": 2,
+    "y": 304,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_05": {
+   "frame": {
+    "x": 304,
+    "y": 304,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_06": {
+   "frame": {
+    "x": 606,
+    "y": 304,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_07": {
+   "frame": {
+    "x": 908,
+    "y": 304,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_08": {
+   "frame": {
+    "x": 2,
+    "y": 606,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_09": {
+   "frame": {
+    "x": 304,
+    "y": 606,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_10": {
+   "frame": {
+    "x": 606,
+    "y": 606,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  },
+  "rumWin_11": {
+   "frame": {
+    "x": 908,
+    "y": 606,
+    "w": 300,
+    "h": 300
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 300
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 300
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/symbol_anim.py",
+  "image": "rumWin.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 1210,
+   "h": 908
+  },
+  "scale": "1",
+  "fps": 6.0,
+  "cellScale": 1.5
+ }
+}

@@ -89,6 +89,17 @@
 		return { key: `${winFrames.prefix}_${String(index).padStart(2, '0')}`, size: winFrames.cellScale };
 	});
 
+	// "hop" (scatter barrel): two jumps with a shudder that fades out, drawn in code over the frames
+	const HOP_HEIGHT = SYMBOL_SIZE * 0.12;
+	const SHAKE_ANGLE = 0.08; // rad
+	const hop = $derived.by(() => {
+		if (!winFrames?.hop || winTime === null) return { y: 0, rotation: 0 };
+		return {
+			y: -HOP_HEIGHT * Math.abs(Math.sin(progress * Math.PI * 2)),
+			rotation: SHAKE_ANGLE * Math.sin(progress * Math.PI * 10) * (1 - progress),
+		};
+	});
+
 	const dim = new Tween(0, { duration: DIM_TIME });
 	$effect(() => {
 		dim.set(context.stateGame.symbolsDimmed && props.state !== 'win' ? 1 : 0);
@@ -115,7 +126,8 @@
 
 <Sprite
 	x={props.x}
-	y={props.y}
+	y={(props.y ?? 0) + hop.y}
+	rotation={hop.rotation}
 	anchor={0.5}
 	key={frame?.key ?? props.symbolInfo.assetKey}
 	{tint}

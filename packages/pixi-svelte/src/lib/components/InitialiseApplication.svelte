@@ -18,8 +18,8 @@
 
 		// no web font preload: the UI uses system fonts (constants-shared/font.ts), the game's own
 		// fonts are bundled assets. The sample loaded an Adobe Typekit kit from an outside server.
-		context.stateApp.pixiApplication = new PIXI.Application<PIXI.Renderer<HTMLCanvasElement>>();
-		await context.stateApp.pixiApplication.init({
+		const app = new PIXI.Application<PIXI.Renderer<HTMLCanvasElement>>();
+		await app.init({
 			autoDensity: true,
 			backgroundAlpha: 0,
 			hello: true,
@@ -31,12 +31,17 @@
 			resolution: devicePixelRatio.current,
 			resizeTo: window,
 		});
+		// Store the application only now. The parent App.svelte calls stateApp.reset() in its own
+		// onMount, which runs after this child's onMount has started: an application stored before
+		// the first await would be wiped by that reset. (The removed font preload used to come first
+		// and hid this.)
+		context.stateApp.pixiApplication = app;
 
-		wrap.appendChild(context.stateApp.pixiApplication.canvas);
+		wrap.appendChild(app.canvas);
 
 		// to prevent that you can't scroll the page with touch on the canvas. https://github.com/pixijs/pixijs/issues/4824
-		context.stateApp.pixiApplication.renderer.events.autoPreventDefault = false;
-		context.stateApp.pixiApplication.renderer.canvas.style.touchAction = 'auto';
+		app.renderer.events.autoPreventDefault = false;
+		app.renderer.canvas.style.touchAction = 'auto';
 	};
 
 	onMount(async () => {

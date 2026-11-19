@@ -263,8 +263,16 @@ export const SYMBOL_INFO_MAP = {
 		count: 15,
 		cellScale: 1.2,
 	}),
-	H2: allStates(sprite('h2.webp', HIGH_SYMBOL_SIZE)),
-	H3: allStates(sprite('h3.webp', HIGH_SYMBOL_SIZE)),
+	H2: withWinFrames(sprite('h2.webp', HIGH_SYMBOL_SIZE), {
+		prefix: 'hatWin',
+		count: 11,
+		cellScale: 1.2,
+	}),
+	H3: withWinFrames(sprite('h3.webp', HIGH_SYMBOL_SIZE), {
+		prefix: 'sabresWin',
+		count: 15,
+		cellScale: 1.2,
+	}),
 	H4: allStates(sprite('h4.webp', HIGH_SYMBOL_SIZE)),
 	H5: withWinFrames(sprite('h5.webp', HIGH_SYMBOL_SIZE), {
 		prefix: 'mugWin',

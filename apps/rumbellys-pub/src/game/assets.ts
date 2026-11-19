@@ -294,6 +294,14 @@ export default {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/mugWin/mugWin.json', import.meta.url).href,
 	},
+	hatWin: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/hatWin/hatWin.json', import.meta.url).href,
+	},
+	sabresWin: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/sabresWin/sabresWin.json', import.meta.url).href,
+	},
 	// wooden sign behind the big win title (art/tools/bigwin_sign.py)
 	bigWinSign: {
 		type: 'sprite',

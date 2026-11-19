@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { CanvasTextMetrics, TextStyle } from 'pixi.js';
 	import { UI_FONT_FAMILY } from 'constants-shared/font';
 	import { Container, Sprite, Text } from 'pixi-svelte';
 	import { Button, type ButtonProps } from 'components-pixi';
@@ -55,11 +56,16 @@
 		return 'default' as const;
 	};
 
+	// The red cloth is only the middle of banner.webp (about 0.25..0.75 of its width),
+	// text keeps a small margin inside it.
+	const CLOTH_TEXT_WIDTH = BANNER.width * 0.42;
+	const CAPTION_MAX_LINES = 2;
+
 	// caption: semibold; price (digits): bold
 	const textStyle = (size: number, fill: number, fontWeight: '600' | '800') => ({
 		align: 'center' as const,
 		wordWrap: true,
-		wordWrapWidth: BANNER.width * 0.8,
+		wordWrapWidth: CLOTH_TEXT_WIDTH,
 		fontFamily: UI_FONT_FAMILY,
 		fontWeight,
 		fontSize: size,
@@ -67,6 +73,23 @@
 		fill,
 		dropShadow: { color: 0x000000, alpha: 0.6, blur: 2, distance: 2, angle: Math.PI / 2 },
 	});
+
+	// long translations ("ACHETER LE BONUS") and big prices get a smaller font until they fit the cloth
+	const fitStyle = (
+		text: string,
+		size: number,
+		fill: number,
+		fontWeight: '600' | '800',
+		maxLines: number,
+	) => {
+		let style = textStyle(size, fill, fontWeight);
+		for (let step = 0; step < 12; step++) {
+			const metrics = CanvasTextMetrics.measureText(text, new TextStyle(style));
+			if (metrics.maxLineWidth <= CLOTH_TEXT_WIDTH && metrics.lines.length <= maxLines) break;
+			style = textStyle(style.fontSize * 0.92, fill, fontWeight);
+		}
+		return style;
+	};
 </script>
 
 {#if !(banner && stateUi.freeSpinCounterShow)}
@@ -94,17 +117,24 @@
 						height={BANNER.height}
 						tint={active ? 0x777777 : 0xffffff}
 					/>
+					<!-- caption: up to 2 lines ("BUY / BONUS") in the upper part of the cloth -->
 					<Text
-						y={BANNER.height * 0.42}
+						y={BANNER.height * 0.37}
 						anchor={0.5}
 						text={label}
-						style={textStyle(UI_BASE_FONT_SIZE * 0.9 - 2, UI_COLORS.icon, '600')}
+						style={fitStyle(
+							label,
+							UI_BASE_FONT_SIZE * 0.9 - 2,
+							UI_COLORS.icon,
+							'600',
+							CAPTION_MAX_LINES,
+						)}
 					/>
 					<Text
-						y={BANNER.height * 0.62}
+						y={BANNER.height * 0.6}
 						anchor={0.5}
 						text={price}
-						style={textStyle(UI_BASE_FONT_SIZE * 0.8, UI_COLORS.accent, '800')}
+						style={fitStyle(price, UI_BASE_FONT_SIZE * 0.8, UI_COLORS.accent, '800', 1)}
 					/>
 				</Container>
 			{:else}

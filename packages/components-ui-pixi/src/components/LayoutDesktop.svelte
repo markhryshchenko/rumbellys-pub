@@ -61,7 +61,8 @@
 	</Container>
 
 	<Container x={INFO_X} y={(MENU.y + SOUND_Y) / 2} scale={0.4 * S}>
-		{@render props.buttonGameRules({ anchor: 0.5 })}
+		<!-- "i" = paytable (the rules button has the list icon) -->
+		{@render props.buttonPayTable({ anchor: 0.5 })}
 	</Container>
 
 	<Container x={LABELS_X} y={ROW_Y + 8} scale={LABELS_SCALE}>
@@ -113,10 +114,9 @@
 		onpointerup={() => (stateUi.menuOpen = false)}
 	/>
 
-	<!-- opens upwards, right of the menu / sound / info buttons (12 px gap from the info button)
-	     and a little higher, so the close button does not cover the BALANCE label -->
+	<!-- opens upwards right above the menu button (close button 12 px above it) -->
 	<MainContainer standard alignVertical="bottom">
-		<Container x={ROW_LEFT + 190 * S} y={MENU.y - 50 * S}>
+		<Container x={MENU.x} y={MENU.y - 81 * S}>
 			<Container scale={0.6 * S} y={-120 * S * 4}>
 				{@render props.buttonPayTable({ anchor: 0.5 })}
 			</Container>

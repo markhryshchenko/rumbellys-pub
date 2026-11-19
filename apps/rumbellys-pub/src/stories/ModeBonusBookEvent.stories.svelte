@@ -14,7 +14,10 @@
 		templateArgs,
 	} from 'components-storybook';
 
+	import type { Language } from 'state-shared';
+
 	import Game from '../components/Game.svelte';
+	import messagesMap from '../i18n/messagesMap';
 	import { setContext } from '../game/context';
 	import { playBookEvent } from '../game/utils';
 	import { eventEmitter } from '../game/eventEmitter';
@@ -23,14 +26,15 @@
 	setContext();
 </script>
 
-{#snippet template(args: TemplateArgs<any>)}
+{#snippet template(args: TemplateArgs<any>, storyContext: { globals: { locale?: Language } })}
 	<StoryGameTemplate
 		skipLoadingScreen={args.skipLoadingScreen}
 		action={async () => {
 			await args.action?.(args.data);
 		}}
 	>
-		<StoryLocale lang="en">
+		<!-- language from the "Language" switch in the Storybook toolbar -->
+		<StoryLocale lang={storyContext.globals.locale ?? 'en'} {messagesMap}>
 			<Game />
 		</StoryLocale>
 	</StoryGameTemplate>

@@ -17,7 +17,10 @@
 	import { stateBet } from 'state-shared';
 
 	import { stateGame, stateGameDerived } from '../game/stateGame.svelte';
+	import type { Language } from 'state-shared';
+
 	import Game from '../components/Game.svelte';
+	import messagesMap from '../i18n/messagesMap';
 	import { setContext } from '../game/context';
 	import { eventEmitter } from '../game/eventEmitter';
 	import config from '../game/config';
@@ -25,23 +28,26 @@
 	setContext();
 </script>
 
-{#snippet template(args: TemplateArgs<any>)}
+{#snippet template(args: TemplateArgs<any>, storyContext: { globals: { locale?: Language } })}
 	<StoryGameTemplate
 		skipLoadingScreen={args.skipLoadingScreen}
 		action={async () => {
 			await args.action?.(args.data);
 		}}
 	>
-		<StoryLocale lang="en">
+		<!-- language from the "Language" switch in the Storybook toolbar -->
+		<StoryLocale lang={storyContext.globals.locale ?? 'en'} {messagesMap}>
 			<Game />
 		</StoryLocale>
 	</StoryGameTemplate>
 {/snippet}
 
 <Story name="component (loadingScreen)">
-	<StoryLocale lang="en">
-		<Game />
-	</StoryLocale>
+	{#snippet template(_args, storyContext: { globals: { locale?: Language } })}
+		<StoryLocale lang={storyContext.globals.locale ?? 'en'} {messagesMap}>
+			<Game />
+		</StoryLocale>
+	{/snippet}
 </Story>
 
 <Story

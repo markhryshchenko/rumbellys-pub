@@ -26,7 +26,7 @@
 	context.eventEmitter.subscribeOnMount({
 		freeSpinIntroShow: () => {
 			show = true;
-			context.eventEmitter.broadcast({ type: 'mascotCheer' });
+			context.eventEmitter.broadcast({ type: 'mascotPlay', clip: 'fsTrigger' });
 		},
 		freeSpinIntroHide: () => (show = false),
 		freeSpinIntroUpdate: async (emitterEvent) => {

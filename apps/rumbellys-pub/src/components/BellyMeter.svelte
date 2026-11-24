@@ -143,7 +143,7 @@
 			level = emitterEvent.level;
 		},
 		bellyMeterDrink: async (emitterEvent) => {
-			context.eventEmitter.broadcast({ type: 'mascotDrink' });
+			context.eventEmitter.broadcast({ type: 'mascotPlay', clip: 'drink' });
 			const firstSlot = filled;
 			await Promise.all(
 				emitterEvent.positions.map(async (position, i) => {
@@ -154,7 +154,7 @@
 			filled = Math.min(emitterEvent.mugs, SLOT_COUNT);
 			if (emitterEvent.levelUp) {
 				level = emitterEvent.level;
-				context.eventEmitter.broadcast({ type: 'mascotCheer' });
+				context.eventEmitter.broadcast({ type: 'mascotPlay', clip: 'cheer' });
 				await waitForTimeout(timed(600));
 			}
 		},

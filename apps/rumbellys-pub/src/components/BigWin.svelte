@@ -45,7 +45,7 @@
 		if (reachedLevel === shownLevel) return;
 		shownLevel = reachedLevel;
 		punch.set(1.35, { duration: 0 }).then(() => punch.set(1));
-		context.eventEmitter.broadcast({ type: 'mascotCheer' });
+		context.eventEmitter.broadcast({ type: 'mascotPlay', clip: 'bigWin' });
 	});
 
 	// sign art (art/tools/bigwin_sign.py): 1200x350 px, the empty board is the text area

@@ -31,7 +31,10 @@
 	let onCountUpComplete = $state(() => {});
 
 	context.eventEmitter.subscribeOnMount({
-		freeSpinOutroShow: () => (show = true),
+		freeSpinOutroShow: () => {
+			show = true;
+			context.eventEmitter.broadcast({ type: 'mascotPlay', clip: 'cheer' });
+		},
 		freeSpinOutroHide: async () => (show = false),
 		freeSpinOutroCountUp: async (emitterEvent) => {
 			amount = emitterEvent.amount;

@@ -13,7 +13,6 @@
 	const context = getContext();
 
 	// Free spins transition: a shower of rum barrels (our scatter symbol) falls through the screen.
-	// The web-sdk sample "falling stones" spine (asset `transition`) is kept but not used.
 	const BARREL_COUNT = 24;
 	const SPAWN_TIME = 700; // ms: barrels start falling during this time
 	const GRAVITY = 3.2; // screen heights per second^2

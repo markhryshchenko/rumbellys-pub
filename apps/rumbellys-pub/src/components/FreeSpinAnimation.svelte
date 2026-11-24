@@ -29,7 +29,7 @@
 	const context = getContext();
 
 	// Free spins intro / outro panel: the reel frame and planks of the main game, smaller,
-	// with a warm lantern glow behind it (the web-sdk sample spine `fsIntro` is no longer used).
+	// with a warm lantern glow behind it.
 	const PANEL_SCALE = 0.8;
 
 	const frame = $derived(

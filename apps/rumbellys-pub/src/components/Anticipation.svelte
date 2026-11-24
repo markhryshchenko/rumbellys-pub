@@ -19,7 +19,7 @@
 	const context = getContext();
 
 	// Scatter anticipation: beer foam bubbles rise through the reel column over a warm gold glow.
-	// Drawn in code, no art. The web-sdk sample spine `anticipation` is kept but not used.
+	// Drawn in code, no art.
 	const BUBBLE_COUNT = 36;
 	const RISE_TIME = 1600; // ms for an average bubble to cross the column
 	const INTRO_TIME = 300; // ms, bubbles fade in

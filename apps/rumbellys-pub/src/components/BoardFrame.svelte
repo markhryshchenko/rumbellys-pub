@@ -27,8 +27,7 @@
 		return { width, height, y: frameTop - height * (0.5 - SIGN_OVER_FRAME) };
 	});
 
-	// free spins: warm lantern glow around the frame (the web-sdk sample purple spine
-	// `reelhouse` is no longer used)
+	// free spins: warm lantern glow around the frame
 	let glow = $state(false);
 
 	context.eventEmitter.subscribeOnMount({

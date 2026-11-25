@@ -1,0 +1,255 @@
+{
+ "frames": {
+  "mascotFidget_00": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_01": {
+   "frame": {
+    "x": 482,
+    "y": 2,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_02": {
+   "frame": {
+    "x": 962,
+    "y": 2,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_03": {
+   "frame": {
+    "x": 1442,
+    "y": 2,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_04": {
+   "frame": {
+    "x": 2,
+    "y": 644,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_05": {
+   "frame": {
+    "x": 482,
+    "y": 644,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_06": {
+   "frame": {
+    "x": 962,
+    "y": 644,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_07": {
+   "frame": {
+    "x": 1442,
+    "y": 644,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_08": {
+   "frame": {
+    "x": 2,
+    "y": 1286,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_09": {
+   "frame": {
+    "x": 482,
+    "y": 1286,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_10": {
+   "frame": {
+    "x": 962,
+    "y": 1286,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_11": {
+   "frame": {
+    "x": 1442,
+    "y": 1286,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/mascot_anim.py",
+  "image": "mascotFidget1.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 1922,
+   "h": 1928
+  },
+  "scale": "1",
+  "fps": 12.0
+ }
+}

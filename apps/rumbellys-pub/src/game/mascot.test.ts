@@ -46,6 +46,23 @@ describe('mascot queue', () => {
 		expect(queue.pending()).toBe('cheer');
 	});
 
+	it('starts the fidget only from idle', () => {
+		const queue = createMascotQueue(clips);
+		expect(queue.request('fidget')).toBe('fidget');
+		queue.finish();
+		queue.request('drink');
+		expect(queue.request('fidget')).toBeNull();
+		expect(queue.pending()).toBeNull(); // a missed fidget is not kept
+	});
+
+	it('lets an event wait for the end of the fidget', () => {
+		const queue = createMascotQueue(clips);
+		queue.request('fidget');
+		expect(queue.request('bigWin')).toBeNull();
+		expect(queue.current()).toBe('fidget');
+		expect(queue.finish()).toBe('bigWin');
+	});
+
 	it('ignores clips without frames', () => {
 		const queue = createMascotQueue(); // no art yet: every count is 0
 		const all: MascotClip[] = ['drink', 'cheer', 'fsTrigger', 'bigWin'];

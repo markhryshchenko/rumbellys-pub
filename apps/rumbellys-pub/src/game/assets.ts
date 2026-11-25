@@ -53,6 +53,19 @@ export default {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/rumbelly/rumbelly.webp', import.meta.url).href,
 	},
+	// Rumbelly clips (art/tools/mascot_anim.py): frames "<clip>_00".. across the sheets
+	mascotFidget1: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/mascotFidget1/mascotFidget1.json', import.meta.url).href,
+	},
+	mascotFidget2: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/mascotFidget2/mascotFidget2.json', import.meta.url).href,
+	},
+	mascotFidget3: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/mascotFidget3/mascotFidget3.json', import.meta.url).href,
+	},
 	// game title font (sign, big win). Pixi registers it as the "New Rocker" family (from the
 	// file name). Latin only: other scripts fall back to GAME_FONT_FAMILY. License: OFL.txt next to it.
 	newRocker: {

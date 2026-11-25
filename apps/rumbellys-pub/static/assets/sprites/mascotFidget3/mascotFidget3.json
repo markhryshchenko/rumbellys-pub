@@ -1,0 +1,95 @@
+{
+ "frames": {
+  "mascotFidget_24": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_25": {
+   "frame": {
+    "x": 482,
+    "y": 2,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_26": {
+   "frame": {
+    "x": 962,
+    "y": 2,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  },
+  "mascotFidget_27": {
+   "frame": {
+    "x": 1442,
+    "y": 2,
+    "w": 478,
+    "h": 640
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 478,
+    "h": 640
+   },
+   "sourceSize": {
+    "w": 478,
+    "h": 640
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/mascot_anim.py",
+  "image": "mascotFidget3.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 1922,
+   "h": 644
+  },
+  "scale": "1",
+  "fps": 12.0
+ }
+}

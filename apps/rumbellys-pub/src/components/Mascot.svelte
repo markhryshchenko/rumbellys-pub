@@ -19,6 +19,7 @@
 		mascotFrameKey,
 		MASCOT_CLIPS,
 		MASCOT_CROSSFADE_MS,
+		MASCOT_FIDGET_PAUSE_MS,
 	} from '../game/mascot';
 
 	// Rumbelly faces left, feet on the floor in front of the bar.
@@ -56,14 +57,30 @@
 		clip = next;
 		frame = 0;
 		clipTime = 0;
+		idleTime = 0;
 	};
+
+	// idle: the fidget comes after a random pause, so it does not look mechanical
+	const fidgetPause = () =>
+		MASCOT_FIDGET_PAUSE_MS.min +
+		Math.random() * (MASCOT_FIDGET_PAUSE_MS.max - MASCOT_FIDGET_PAUSE_MS.min);
+	let nextFidget = fidgetPause();
+	let idleTime = 0; // ms in idle since the last clip (idle frames may loop, clipTime restarts)
 
 	const step = (dt: number) => {
 		if (fadeAlpha > 0) fadeAlpha = Math.max(0, fadeAlpha - dt / MASCOT_CROSSFADE_MS);
 		const info = MASCOT_CLIPS[clip];
+		clipTime += dt;
+
+		if (clip === 'idle') idleTime += dt;
+		if (clip === 'idle' && idleTime >= nextFidget) {
+			nextFidget = fidgetPause();
+			const next = queue.request('fidget');
+			if (next) switchTo(next);
+			return;
+		}
 		if (!hasFrames(clip)) return; // static picture
 
-		clipTime += dt;
 		const index = Math.floor((clipTime / 1000) * info.fps);
 		if (index < info.count) {
 			frame = index;

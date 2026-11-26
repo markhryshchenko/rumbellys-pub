@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
-import { createMascotQueue, mascotFrameKey, MASCOT_CLIPS, type MascotClip } from './mascot';
+import {
+	createMascotQueue,
+	mascotFrameGeometry,
+	mascotFrameKey,
+	MASCOT_ASPECT,
+	MASCOT_CLIPS,
+	type MascotClip,
+} from './mascot';
 
 // every clip with frames, so the queue logic can be tested before the art exists
 const clips = Object.fromEntries(
@@ -64,10 +71,23 @@ describe('mascot queue', () => {
 	});
 
 	it('ignores clips without frames', () => {
-		const queue = createMascotQueue(); // no art yet: every count is 0
-		const all: MascotClip[] = ['drink', 'cheer', 'fsTrigger', 'bigWin'];
+		const queue = createMascotQueue(); // the real clips: these have no art yet (count 0)
+		const all: MascotClip[] = ['cheer', 'fsTrigger', 'bigWin'];
 		for (const clip of all) expect(queue.request(clip)).toBeNull();
 		expect(queue.current()).toBe('idle');
+	});
+
+	it('places a frame with margins over the static picture', () => {
+		const plain = mascotFrameGeometry(100);
+		expect(plain.anchor).toEqual({ x: 0.5, y: 1 });
+		expect(plain.width).toBeCloseTo(100 * MASCOT_ASPECT);
+
+		const margin = { left: 0.1, top: 0.2, right: 0.05, bottom: 0 };
+		const big = mascotFrameGeometry(100, margin);
+		expect(big.height).toBeCloseTo(120);
+		// the static picture's feet (bottom centre) stay at the anchor
+		expect(big.anchor.x * big.width).toBeCloseTo(10 + (100 * MASCOT_ASPECT) / 2);
+		expect(big.anchor.y * big.height).toBeCloseTo(20 + 100);
 	});
 
 	it('builds frame keys like the sprite sheets', () => {

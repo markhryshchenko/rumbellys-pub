@@ -1,0 +1,261 @@
+{
+ "frames": {
+  "mascotDrink_00": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_01": {
+   "frame": {
+    "x": 481,
+    "y": 2,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_02": {
+   "frame": {
+    "x": 960,
+    "y": 2,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_03": {
+   "frame": {
+    "x": 1439,
+    "y": 2,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_04": {
+   "frame": {
+    "x": 2,
+    "y": 672,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_05": {
+   "frame": {
+    "x": 481,
+    "y": 672,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_06": {
+   "frame": {
+    "x": 960,
+    "y": 672,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_07": {
+   "frame": {
+    "x": 1439,
+    "y": 672,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_08": {
+   "frame": {
+    "x": 2,
+    "y": 1342,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_09": {
+   "frame": {
+    "x": 481,
+    "y": 1342,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_10": {
+   "frame": {
+    "x": 960,
+    "y": 1342,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_11": {
+   "frame": {
+    "x": 1439,
+    "y": 1342,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/mascot_anim.py",
+  "image": "mascotDrink1.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 1918,
+   "h": 2012
+  },
+  "scale": "1",
+  "fps": 12.0,
+  "margin": {
+   "left": 10,
+   "top": 87,
+   "right": 27,
+   "bottom": 0
+  }
+ }
+}

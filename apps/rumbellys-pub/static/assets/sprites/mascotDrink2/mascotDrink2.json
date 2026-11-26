@@ -1,0 +1,161 @@
+{
+ "frames": {
+  "mascotDrink_12": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_13": {
+   "frame": {
+    "x": 481,
+    "y": 2,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_14": {
+   "frame": {
+    "x": 960,
+    "y": 2,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_15": {
+   "frame": {
+    "x": 1439,
+    "y": 2,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_16": {
+   "frame": {
+    "x": 2,
+    "y": 672,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_17": {
+   "frame": {
+    "x": 481,
+    "y": 672,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  },
+  "mascotDrink_18": {
+   "frame": {
+    "x": 960,
+    "y": 672,
+    "w": 477,
+    "h": 668
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 668
+   },
+   "sourceSize": {
+    "w": 477,
+    "h": 668
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/mascot_anim.py",
+  "image": "mascotDrink2.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 1918,
+   "h": 1342
+  },
+  "scale": "1",
+  "fps": 12.0,
+  "margin": {
+   "left": 10,
+   "top": 87,
+   "right": 27,
+   "bottom": 0
+  }
+ }
+}

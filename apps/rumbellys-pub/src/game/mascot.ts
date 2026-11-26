@@ -18,6 +18,26 @@ export type MascotClipInfo = {
 	loop: boolean;
 	priority: number; // a clip can cut a playing clip of a lower priority
 	waitForEnd?: boolean; // never cut: other clips wait until it ends
+	// the clip leaves the sprite's picture (a mug lifted above the head): its frames are bigger by
+	// these margins, as parts of the sprite's height (mascot_anim.py prints them)
+	margin?: MascotMargin;
+};
+
+export type MascotMargin = { left: number; top: number; right: number; bottom: number };
+
+export const MASCOT_ASPECT = 574 / 768; // rumbelly.webp
+
+// Size and anchor of a frame, so the sprite's area inside it lies exactly where the static picture
+// is (feet at the anchor, the same scale). `height` is the static picture's height.
+export const mascotFrameGeometry = (height: number, margin?: MascotMargin) => {
+	const m = margin ?? { left: 0, top: 0, right: 0, bottom: 0 };
+	const width = MASCOT_ASPECT + m.left + m.right;
+	const full = 1 + m.top + m.bottom;
+	return {
+		width: height * width,
+		height: height * full,
+		anchor: { x: (m.left + MASCOT_ASPECT / 2) / width, y: (m.top + 1) / full },
+	};
 };
 
 // frames: art/tools/mascot_anim.py (sheets <prefix>1, <prefix>2, ... in assets.ts)
@@ -25,7 +45,16 @@ export const MASCOT_CLIPS: Record<MascotClip, MascotClipInfo> = {
 	idle: { prefix: 'mascotIdle', count: 0, fps: 12, loop: true, priority: 0 },
 	// art/rumbelly_idle.mp4 frames 18-72, every 2nd
 	fidget: { prefix: 'mascotFidget', count: 28, fps: 12, loop: false, priority: 0, waitForEnd: true },
-	drink: { prefix: 'mascotDrink', count: 0, fps: 12, loop: false, priority: 1 }, // a mug lands
+	// a mug lands; art/rumbelly_drink.mp4 frames 12-48 every 2nd: the gulp ends with the mug
+	// almost back in place (later the clip lowers it elsewhere and MJ drew foam drops)
+	drink: {
+		prefix: 'mascotDrink',
+		count: 19,
+		fps: 12,
+		loop: false,
+		priority: 1,
+		margin: { left: 0.013, top: 0.1133, right: 0.0352, bottom: 0 },
+	},
 	cheer: { prefix: 'mascotCheer', count: 0, fps: 12, loop: false, priority: 2 }, // new multiplier, FS end
 	fsTrigger: { prefix: 'mascotFsTrigger', count: 0, fps: 12, loop: false, priority: 3 }, // 3+ barrels
 	bigWin: { prefix: 'mascotBigWin', count: 0, fps: 12, loop: false, priority: 4 },

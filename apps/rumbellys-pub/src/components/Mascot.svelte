@@ -20,11 +20,12 @@
 		MASCOT_CLIPS,
 		MASCOT_CROSSFADE_MS,
 		MASCOT_FIDGET_PAUSE_MS,
+		mascotFrameGeometry,
 	} from '../game/mascot';
 
 	// Rumbelly faces left, feet on the floor in front of the bar.
-	// Clips, queue and the no-jerk rules: game/mascot.ts. A clip without frames shows rumbelly.webp.
-	const ASPECT = 574 / 768; // rumbelly.webp; clip frames have the same size
+	// Clips, queue, frame size and the no-jerk rules: game/mascot.ts. A clip without frames shows
+	// rumbelly.webp.
 	// x / y: his feet (anchor bottom centre), in symbols from the board's right / bottom edge
 	const PLACEMENT = {
 		// right of the reels
@@ -45,14 +46,19 @@
 
 	// crossfade: the last frame of the old clip fades out over the new one
 	let fadeKey = $state<string | null>(null);
+	let fadeClip = $state<MascotClip>('idle');
 	let fadeAlpha = $state(0);
 
 	const keyOf = (name: MascotClip, index: number) =>
 		hasFrames(name) ? mascotFrameKey(name, index) : 'rumbelly';
 	const currentKey = $derived(keyOf(clip, frame));
+	// frames of a clip with margins are bigger than the static picture, placed over it
+	const geometryOf = (name: MascotClip) =>
+		mascotFrameGeometry(placement.height, hasFrames(name) ? MASCOT_CLIPS[name].margin : undefined);
 
 	const switchTo = (next: MascotClip) => {
 		fadeKey = currentKey;
+		fadeClip = clip;
 		fadeAlpha = 1;
 		clip = next;
 		frame = 0;
@@ -111,7 +117,8 @@
 		},
 	});
 
-	const size = $derived({ width: placement.height * ASPECT, height: placement.height });
+	const current = $derived(geometryOf(clip));
+	const fading = $derived(fadeKey ? geometryOf(fadeClip) : current);
 </script>
 
 <BoardContainer>
@@ -119,14 +126,13 @@
 		x={context.stateGameDerived.boardLayout().width + SYMBOL_SIZE * placement.x}
 		y={context.stateGameDerived.boardLayout().height + SYMBOL_SIZE * placement.y}
 	>
-		<Sprite key={currentKey} anchor={{ x: 0.5, y: 1 }} {...size} />
+		<Sprite key={currentKey} {...current} />
 		<!-- always mounted, so it always stays above the current frame -->
 		<Sprite
 			key={fadeKey ?? currentKey}
-			anchor={{ x: 0.5, y: 1 }}
 			alpha={fadeAlpha}
 			visible={fadeAlpha > 0}
-			{...size}
+			{...fading}
 		/>
 	</Container>
 </BoardContainer>

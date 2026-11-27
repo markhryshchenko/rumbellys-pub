@@ -18,26 +18,20 @@
 		hasFrames,
 		mascotFrameKey,
 		MASCOT_CLIPS,
+		MASCOT_PLACEMENT,
 		MASCOT_CROSSFADE_MS,
 		MASCOT_FIDGET_PAUSE_MS,
 		mascotFrameGeometry,
 	} from '../game/mascot';
 
-	// Rumbelly faces left, feet on the floor in front of the bar.
+	// Rumbelly faces left, feet on the floor in front of the bar (MASCOT_PLACEMENT).
 	// Clips, queue, frame size and the no-jerk rules: game/mascot.ts. A clip without frames shows
 	// rumbelly.webp.
-	// x / y: his feet (anchor bottom centre), in symbols from the board's right / bottom edge
-	const PLACEMENT = {
-		// right of the reels
-		normal: { height: SYMBOL_SIZE * 3.6, x: 2.07, y: 1.37 },
-		// in the pub scene under the reels, right side
-		portrait: { height: SYMBOL_SIZE * 2.25, x: -0.95, y: 2.85 },
-	};
-
 	const context = getContext();
 	const placement = $derived(
-		context.stateLayoutDerived.layoutType() === 'portrait' ? PLACEMENT.portrait : PLACEMENT.normal,
+		MASCOT_PLACEMENT[context.stateLayoutDerived.layoutType() === 'portrait' ? 'portrait' : 'normal'],
 	);
+	const pictureHeight = $derived(placement.height * SYMBOL_SIZE);
 
 	const queue = createMascotQueue();
 	let clip = $state<MascotClip>('idle');
@@ -54,7 +48,7 @@
 	const currentKey = $derived(keyOf(clip, frame));
 	// frames of a clip with margins are bigger than the static picture, placed over it
 	const geometryOf = (name: MascotClip) =>
-		mascotFrameGeometry(placement.height, hasFrames(name) ? MASCOT_CLIPS[name].margin : undefined);
+		mascotFrameGeometry(pictureHeight, hasFrames(name) ? MASCOT_CLIPS[name].margin : undefined);
 
 	const switchTo = (next: MascotClip) => {
 		fadeKey = currentKey;

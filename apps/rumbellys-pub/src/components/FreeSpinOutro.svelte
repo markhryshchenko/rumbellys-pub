@@ -11,7 +11,6 @@
 	import { FadeContainer, WinCountUpProvider } from 'components-pixi';
 	import { bookEventAmountToCurrencyString } from 'utils-shared/amount';
 	import { waitForResolve } from 'utils-shared/wait';
-	import { CanvasSizeRectangle } from 'components-layout';
 	import { OnMount } from 'components-shared';
 
 	import { getContext } from '../game/context';
@@ -20,6 +19,7 @@
 	import FreeSpinAnimation, { FS_PANEL_TEXT } from './FreeSpinAnimation.svelte';
 	import TitleText from './TitleText.svelte';
 	import PressToContinue from './PressToContinue.svelte';
+	import SceneDim from './SceneDim.svelte';
 	import WinCoins from './WinCoins.svelte';
 
 	const context = getContext();
@@ -51,7 +51,7 @@
 			{#snippet children({ countUpAmount, startCountUp, finishCountUp, countUpCompleted })}
 				<OnMount onmount={() => startCountUp()} />
 
-				<CanvasSizeRectangle backgroundColor={0x000000} backgroundAlpha={0.5} />
+				<SceneDim />
 
 				<FreeSpinAnimation>
 					{#snippet children()}

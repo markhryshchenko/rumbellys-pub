@@ -27,6 +27,31 @@ export type MascotMargin = { left: number; top: number; right: number; bottom: n
 
 export const MASCOT_ASPECT = 574 / 768; // rumbelly.webp
 
+// Where Rumbelly stands, in symbols: x / y are his feet (anchor bottom centre) from the board's
+// right / bottom edge, height is the static picture's height. He faces left.
+export type MascotPlacement = { height: number; x: number; y: number };
+export const MASCOT_PLACEMENT: Record<'normal' | 'portrait', MascotPlacement> = {
+	normal: { height: 3.6, x: 2.07, y: 1.37 }, // right of the reels
+	portrait: { height: 2.25, x: -0.95, y: 2.85 }, // in the pub scene under the reels, right side
+};
+
+// The bright spot the popups' dark veil leaves around him (free spins popups, big win), in board
+// units (`size` = one symbol). Inside `clear` the veil is gone, it grows back up to `outer`.
+// The ellipse also takes in a mug lifted above his head (cheer).
+export const mascotSpot = (
+	placement: MascotPlacement,
+	size: number,
+	board: { width: number; height: number },
+) => {
+	const height = placement.height * size;
+	return {
+		x: board.width + placement.x * size,
+		y: board.height + placement.y * size - height * 0.6,
+		clear: { x: height * 0.45, y: height * 0.62 },
+		outer: { x: height * 0.62, y: height * 0.8 },
+	};
+};
+
 // Size and anchor of a frame, so the sprite's area inside it lies exactly where the static picture
 // is (feet at the anchor, the same scale). `height` is the static picture's height.
 export const mascotFrameGeometry = (height: number, margin?: MascotMargin) => {
@@ -65,7 +90,16 @@ export const MASCOT_CLIPS: Record<MascotClip, MascotClipInfo> = {
 		priority: 2,
 		margin: { left: 0.013, top: 0.2005, right: 0.0703, bottom: 0 },
 	},
-	fsTrigger: { prefix: 'mascotFsTrigger', count: 0, fps: 12, loop: false, priority: 3 }, // 3+ barrels
+	// 3+ barrels (free spins intro); art/rumbelly_fs_trigger.mp4 frames 13-95 every 2nd: "Oho!",
+	// he waves the viewer in with his free hand, laughs, back to the start pose
+	fsTrigger: {
+		prefix: 'mascotFsTrigger',
+		count: 42,
+		fps: 12,
+		loop: false,
+		priority: 3,
+		margin: { left: 0.0521, top: 0.0078, right: 0.0846, bottom: 0 },
+	},
 	bigWin: { prefix: 'mascotBigWin', count: 0, fps: 12, loop: false, priority: 4 },
 };
 

@@ -1,0 +1,141 @@
+{
+ "frames": {
+  "mascotFsTrigger_36": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_37": {
+   "frame": {
+    "x": 512,
+    "y": 2,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_38": {
+   "frame": {
+    "x": 1022,
+    "y": 2,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_39": {
+   "frame": {
+    "x": 1532,
+    "y": 2,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_40": {
+   "frame": {
+    "x": 2,
+    "y": 583,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_41": {
+   "frame": {
+    "x": 512,
+    "y": 583,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/mascot_anim.py",
+  "image": "mascotFsTrigger4.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 2042,
+   "h": 1164
+  },
+  "scale": "1",
+  "fps": 12.0,
+  "margin": {
+   "left": 40,
+   "top": 6,
+   "right": 65,
+   "bottom": 0
+  }
+ }
+}

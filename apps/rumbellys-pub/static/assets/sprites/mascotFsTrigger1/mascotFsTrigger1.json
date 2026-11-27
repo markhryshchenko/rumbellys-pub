@@ -1,0 +1,261 @@
+{
+ "frames": {
+  "mascotFsTrigger_00": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_01": {
+   "frame": {
+    "x": 512,
+    "y": 2,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_02": {
+   "frame": {
+    "x": 1022,
+    "y": 2,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_03": {
+   "frame": {
+    "x": 1532,
+    "y": 2,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_04": {
+   "frame": {
+    "x": 2,
+    "y": 583,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_05": {
+   "frame": {
+    "x": 512,
+    "y": 583,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_06": {
+   "frame": {
+    "x": 1022,
+    "y": 583,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_07": {
+   "frame": {
+    "x": 1532,
+    "y": 583,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_08": {
+   "frame": {
+    "x": 2,
+    "y": 1164,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_09": {
+   "frame": {
+    "x": 512,
+    "y": 1164,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_10": {
+   "frame": {
+    "x": 1022,
+    "y": 1164,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  },
+  "mascotFsTrigger_11": {
+   "frame": {
+    "x": 1532,
+    "y": 1164,
+    "w": 508,
+    "h": 579
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 508,
+    "h": 579
+   },
+   "sourceSize": {
+    "w": 508,
+    "h": 579
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/mascot_anim.py",
+  "image": "mascotFsTrigger1.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 2042,
+   "h": 1745
+  },
+  "scale": "1",
+  "fps": 12.0,
+  "margin": {
+   "left": 40,
+   "top": 6,
+   "right": 65,
+   "bottom": 0
+  }
+ }
+}

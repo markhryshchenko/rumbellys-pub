@@ -6,7 +6,6 @@
 </script>
 
 <script lang="ts">
-	import { CanvasSizeRectangle } from 'components-layout';
 	import { FadeContainer } from 'components-pixi';
 	import { waitForResolve } from 'utils-shared/wait';
 
@@ -14,6 +13,7 @@
 	import { TITLE_CREAM } from '../game/constants';
 	import { i18nDerived } from '../i18n/i18nDerived';
 	import PressToContinue from './PressToContinue.svelte';
+	import SceneDim from './SceneDim.svelte';
 	import FreeSpinAnimation, { FS_PANEL_TEXT } from './FreeSpinAnimation.svelte';
 	import TitleText from './TitleText.svelte';
 
@@ -38,7 +38,7 @@
 
 <!-- RUMBELLY'S ROUNDS / YOU WON / 10 / FREE SPINS: text in the sign font, every language -->
 <FadeContainer {show}>
-	<CanvasSizeRectangle backgroundColor={0x000000} backgroundAlpha={0.5} />
+	<SceneDim />
 
 	<FreeSpinAnimation>
 		{#snippet children()}

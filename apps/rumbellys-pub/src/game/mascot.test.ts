@@ -6,6 +6,8 @@ import {
 	mascotFrameKey,
 	MASCOT_ASPECT,
 	MASCOT_CLIPS,
+	MASCOT_PLACEMENT,
+	mascotSpot,
 	type MascotClip,
 } from './mascot';
 
@@ -72,7 +74,7 @@ describe('mascot queue', () => {
 
 	it('ignores clips without frames', () => {
 		const queue = createMascotQueue(); // the real clips: these have no art yet (count 0)
-		const all: MascotClip[] = ['fsTrigger', 'bigWin'];
+		const all: MascotClip[] = ['bigWin'];
 		for (const clip of all) expect(queue.request(clip)).toBeNull();
 		expect(queue.current()).toBe('idle');
 	});
@@ -88,6 +90,23 @@ describe('mascot queue', () => {
 		// the static picture's feet (bottom centre) stay at the anchor
 		expect(big.anchor.x * big.width).toBeCloseTo(10 + (100 * MASCOT_ASPECT) / 2);
 		expect(big.anchor.y * big.height).toBeCloseTo(20 + 100);
+	});
+
+	it('keeps him (and a mug above his head) in the bright spot of the popups veil', () => {
+		const board = { width: 500, height: 300 };
+		for (const placement of Object.values(MASCOT_PLACEMENT)) {
+			const spot = mascotSpot(placement, 100, board);
+			const feet = { x: board.width + placement.x * 100, y: board.height + placement.y * 100 };
+			const height = placement.height * 100;
+			// is a point inside the clear ellipse (no veil)?
+			const clear = (x: number, y: number) =>
+				((x - spot.x) / spot.clear.x) ** 2 + ((y - spot.y) / spot.clear.y) ** 2 <= 1;
+			expect(clear(feet.x, feet.y)).toBe(true);
+			expect(clear(feet.x, feet.y - height)).toBe(true); // head
+			expect(clear(feet.x, feet.y - height * (1 + MASCOT_CLIPS.cheer.margin!.top))).toBe(true);
+			expect(spot.outer.x).toBeGreaterThan(spot.clear.x);
+			expect(spot.outer.y).toBeGreaterThan(spot.clear.y);
+		}
 	});
 
 	it('builds frame keys like the sprite sheets', () => {

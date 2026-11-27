@@ -12,13 +12,14 @@
 	import { FadeContainer, WinCountUpProvider } from 'components-pixi';
 	import { waitForResolve, waitForTimeout } from 'utils-shared/wait';
 	import { bookEventAmountToCurrencyString } from 'utils-shared/amount';
-	import { CanvasSizeRectangle, MainContainer } from 'components-layout';
+	import { MainContainer } from 'components-layout';
 	import { OnMount } from 'components-shared';
 
 	import WinCoins from './WinCoins.svelte';
 	import BigWin from './BigWin.svelte';
 	import TitleText from './TitleText.svelte';
 	import PressToContinue from './PressToContinue.svelte';
+	import SceneDim from './SceneDim.svelte';
 	import { SYMBOL_SIZE } from '../game/constants';
 	import { getContext } from '../game/context';
 
@@ -49,7 +50,7 @@
 		<WinCountUpProvider {amount} {duration} oncomplete={() => onCountUpComplete()}>
 			{#snippet children({ countUpAmount, startCountUp, finishCountUp, countUpCompleted })}
 				{#if isBigWin}
-					<CanvasSizeRectangle backgroundColor={0x000000} backgroundAlpha={0.5} />
+					<SceneDim />
 				{/if}
 
 				<OnMount

@@ -55,7 +55,16 @@ export const MASCOT_CLIPS: Record<MascotClip, MascotClipInfo> = {
 		priority: 1,
 		margin: { left: 0.013, top: 0.1133, right: 0.0352, bottom: 0 },
 	},
-	cheer: { prefix: 'mascotCheer', count: 0, fps: 12, loop: false, priority: 2 }, // new multiplier, FS end
+	// new multiplier, FS end; art/rumbelly_cheer.mp4 frames 14-76 every 2nd: a toast with the mug
+	// high above his head, laughing, back to the start pose
+	cheer: {
+		prefix: 'mascotCheer',
+		count: 32,
+		fps: 12,
+		loop: false,
+		priority: 2,
+		margin: { left: 0.013, top: 0.2005, right: 0.0703, bottom: 0 },
+	},
 	fsTrigger: { prefix: 'mascotFsTrigger', count: 0, fps: 12, loop: false, priority: 3 }, // 3+ barrels
 	bigWin: { prefix: 'mascotBigWin', count: 0, fps: 12, loop: false, priority: 4 },
 };

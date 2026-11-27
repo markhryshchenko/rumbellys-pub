@@ -1,0 +1,261 @@
+{
+ "frames": {
+  "mascotCheer_00": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_01": {
+   "frame": {
+    "x": 469,
+    "y": 2,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_02": {
+   "frame": {
+    "x": 936,
+    "y": 2,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_03": {
+   "frame": {
+    "x": 1403,
+    "y": 2,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_04": {
+   "frame": {
+    "x": 2,
+    "y": 676,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_05": {
+   "frame": {
+    "x": 469,
+    "y": 676,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_06": {
+   "frame": {
+    "x": 936,
+    "y": 676,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_07": {
+   "frame": {
+    "x": 1403,
+    "y": 676,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_08": {
+   "frame": {
+    "x": 2,
+    "y": 1350,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_09": {
+   "frame": {
+    "x": 469,
+    "y": 1350,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_10": {
+   "frame": {
+    "x": 936,
+    "y": 1350,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  },
+  "mascotCheer_11": {
+   "frame": {
+    "x": 1403,
+    "y": 1350,
+    "w": 465,
+    "h": 672
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 465,
+    "h": 672
+   },
+   "sourceSize": {
+    "w": 465,
+    "h": 672
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/mascot_anim.py",
+  "image": "mascotCheer1.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 1870,
+   "h": 2024
+  },
+  "scale": "1",
+  "fps": 12.0,
+  "margin": {
+   "left": 10,
+   "top": 154,
+   "right": 54,
+   "bottom": 0
+  }
+ }
+}

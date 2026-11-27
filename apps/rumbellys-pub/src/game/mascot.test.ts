@@ -72,7 +72,7 @@ describe('mascot queue', () => {
 
 	it('ignores clips without frames', () => {
 		const queue = createMascotQueue(); // the real clips: these have no art yet (count 0)
-		const all: MascotClip[] = ['cheer', 'fsTrigger', 'bigWin'];
+		const all: MascotClip[] = ['fsTrigger', 'bigWin'];
 		for (const clip of all) expect(queue.request(clip)).toBeNull();
 		expect(queue.current()).toBe('idle');
 	});

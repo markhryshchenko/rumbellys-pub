@@ -74,6 +74,18 @@ export default {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/mascotDrink2/mascotDrink2.json', import.meta.url).href,
 	},
+	mascotCheer1: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/mascotCheer1/mascotCheer1.json', import.meta.url).href,
+	},
+	mascotCheer2: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/mascotCheer2/mascotCheer2.json', import.meta.url).href,
+	},
+	mascotCheer3: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/mascotCheer3/mascotCheer3.json', import.meta.url).href,
+	},
 	// game title font (sign, big win). Pixi registers it as the "New Rocker" family (from the
 	// file name). Latin only: other scripts fall back to GAME_FONT_FAMILY. License: OFL.txt next to it.
 	newRocker: {

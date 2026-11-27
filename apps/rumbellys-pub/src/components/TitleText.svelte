@@ -13,6 +13,7 @@
 		font?: 'title' | 'game';
 		x?: number;
 		y?: number;
+		alpha?: number; // 0 hides it
 	};
 
 	const props: Props = $props();
@@ -25,7 +26,13 @@
 	});
 </script>
 
-<Container x={props.x ?? 0} y={props.y ?? 0} {scale}>
+<Container
+	x={props.x ?? 0}
+	y={props.y ?? 0}
+	{scale}
+	alpha={props.alpha ?? 1}
+	visible={(props.alpha ?? 1) > 0}
+>
 	<Text
 		anchor={0.5}
 		text={props.text}

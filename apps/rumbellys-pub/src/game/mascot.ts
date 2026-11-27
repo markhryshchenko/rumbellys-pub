@@ -44,7 +44,7 @@ export const MASCOT_PLACEMENT: Record<'normal' | 'portrait', MascotPlacement> = 
 
 // The bright spot the popups' dark veil leaves around him (free spins popups, big win), in board
 // units (`size` = one symbol). Inside `clear` the veil is gone, it grows back up to `outer`.
-// The ellipse also takes in a mug lifted above his head (cheer).
+// The ellipse also takes in a mug lifted above his head (cheer, big win).
 export const mascotSpot = (
 	placement: MascotPlacement,
 	size: number,
@@ -53,9 +53,9 @@ export const mascotSpot = (
 	const height = placement.height * size;
 	return {
 		x: board.width + placement.x * size,
-		y: board.height + placement.y * size - height * 0.6,
-		clear: { x: height * 0.45, y: height * 0.62 },
-		outer: { x: height * 0.62, y: height * 0.8 },
+		y: board.height + placement.y * size - height * 0.62,
+		clear: { x: height * 0.45, y: height * 0.65 },
+		outer: { x: height * 0.62, y: height * 0.83 },
 	};
 };
 
@@ -118,7 +118,17 @@ export const MASCOT_CLIPS: Record<MascotClip, MascotClipInfo> = {
 		priority: 3,
 		margin: { left: 0.0521, top: 0.0078, right: 0.0846, bottom: 0 },
 	},
-	bigWin: { prefix: 'mascotBigWin', count: 0, fps: 12, loop: false, priority: 4 },
+	// art/rumbelly_bigwin.mp4 frames 12-100 every 2nd: a big laugh, the mug high up, a kick, a gulp,
+	// beer splashes, back to the start pose. Where the mug left the video, mascot_anim.py --crowns
+	// redrew the top of the foam
+	bigWin: {
+		prefix: 'mascotBigWin',
+		count: 45,
+		fps: 12,
+		loop: false,
+		priority: 4,
+		margin: { left: 0.0833, top: 0.224, right: 0.0833, bottom: 0 },
+	},
 };
 
 export const MASCOT_CROSSFADE_MS = 150;

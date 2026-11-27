@@ -82,10 +82,15 @@ describe('mascot queue', () => {
 	});
 
 	it('ignores clips without frames', () => {
-		const queue = createMascotQueue(); // the real clips: these have no art yet (count 0)
-		const all: MascotClip[] = ['bigWin'];
-		for (const clip of all) expect(queue.request(clip)).toBeNull();
+		// a clip whose art is not made yet (count 0) shows the static picture
+		const queue = createMascotQueue({ ...clips, bigWin: { ...clips.bigWin, count: 0 } });
+		expect(queue.request('bigWin')).toBeNull();
 		expect(queue.current()).toBe('idle');
+	});
+
+	it('has frames for every event clip', () => {
+		const events: MascotClip[] = ['fidget', 'win', 'drink', 'cheer', 'fsTrigger', 'bigWin'];
+		for (const clip of events) expect(MASCOT_CLIPS[clip].count).toBeGreaterThan(0);
 	});
 
 	it('places a frame with margins over the static picture', () => {
@@ -112,7 +117,9 @@ describe('mascot queue', () => {
 				((x - spot.x) / spot.clear.x) ** 2 + ((y - spot.y) / spot.clear.y) ** 2 <= 1;
 			expect(clear(feet.x, feet.y)).toBe(true);
 			expect(clear(feet.x, feet.y - height)).toBe(true); // head
-			expect(clear(feet.x, feet.y - height * (1 + MASCOT_CLIPS.cheer.margin!.top))).toBe(true);
+			// the highest mug of all clips
+			const top = Math.max(...Object.values(MASCOT_CLIPS).map((info) => info.margin?.top ?? 0));
+			expect(clear(feet.x, feet.y - height * (1 + top))).toBe(true);
 			expect(spot.outer.x).toBeGreaterThan(spot.clear.x);
 			expect(spot.outer.y).toBeGreaterThan(spot.clear.y);
 		}

@@ -1,0 +1,261 @@
+{
+ "frames": {
+  "mascotBigWin_24": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_25": {
+   "frame": {
+    "x": 479,
+    "y": 2,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_26": {
+   "frame": {
+    "x": 956,
+    "y": 2,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_27": {
+   "frame": {
+    "x": 1433,
+    "y": 2,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_28": {
+   "frame": {
+    "x": 2,
+    "y": 640,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_29": {
+   "frame": {
+    "x": 479,
+    "y": 640,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_30": {
+   "frame": {
+    "x": 956,
+    "y": 640,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_31": {
+   "frame": {
+    "x": 1433,
+    "y": 640,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_32": {
+   "frame": {
+    "x": 2,
+    "y": 1278,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_33": {
+   "frame": {
+    "x": 479,
+    "y": 1278,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_34": {
+   "frame": {
+    "x": 956,
+    "y": 1278,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  },
+  "mascotBigWin_35": {
+   "frame": {
+    "x": 1433,
+    "y": 1278,
+    "w": 475,
+    "h": 636
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 475,
+    "h": 636
+   },
+   "sourceSize": {
+    "w": 475,
+    "h": 636
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/mascot_anim.py",
+  "image": "mascotBigWin3.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 1910,
+   "h": 1916
+  },
+  "scale": "1",
+  "fps": 12.0,
+  "margin": {
+   "left": 64,
+   "top": 172,
+   "right": 64,
+   "bottom": 0
+  }
+ }
+}

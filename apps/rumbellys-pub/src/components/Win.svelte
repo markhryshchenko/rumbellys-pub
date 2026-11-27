@@ -37,6 +37,10 @@
 		winUpdate: async (emitterEvent) => {
 			amount = emitterEvent.amount;
 			winLevelData = emitterEvent.winLevelData;
+			// Rumbelly laughs at a medium win (a big win plays his bigWin clip in BigWin)
+			if (winLevelData.type === 'medium') {
+				context.eventEmitter.broadcast({ type: 'mascotPlay', clip: 'win' });
+			}
 			await waitForResolve((resolve) => (oncomplete = resolve));
 		},
 	});

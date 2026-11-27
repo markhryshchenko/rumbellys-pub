@@ -72,6 +72,15 @@ describe('mascot queue', () => {
 		expect(queue.finish()).toBe('bigWin');
 	});
 
+	it('reacts to a medium win at once from idle, after a drink in free spins', () => {
+		const queue = createMascotQueue(clips);
+		expect(queue.request('win')).toBe('win');
+		queue.finish();
+		queue.request('drink');
+		expect(queue.request('win')).toBeNull();
+		expect(queue.finish()).toBe('win');
+	});
+
 	it('ignores clips without frames', () => {
 		const queue = createMascotQueue(); // the real clips: these have no art yet (count 0)
 		const all: MascotClip[] = ['bigWin'];

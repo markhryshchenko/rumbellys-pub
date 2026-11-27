@@ -66,6 +66,14 @@ export default {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/mascotFidget3/mascotFidget3.json', import.meta.url).href,
 	},
+	mascotWin1: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/mascotWin1/mascotWin1.json', import.meta.url).href,
+	},
+	mascotWin2: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/mascotWin2/mascotWin2.json', import.meta.url).href,
+	},
 	mascotDrink1: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/mascotDrink1/mascotDrink1.json', import.meta.url).href,

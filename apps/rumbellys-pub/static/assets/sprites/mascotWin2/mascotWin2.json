@@ -1,0 +1,101 @@
+{
+ "frames": {
+  "mascotWin_12": {
+   "frame": {
+    "x": 2,
+    "y": 2,
+    "w": 438,
+    "h": 575
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 438,
+    "h": 575
+   },
+   "sourceSize": {
+    "w": 438,
+    "h": 575
+   }
+  },
+  "mascotWin_13": {
+   "frame": {
+    "x": 442,
+    "y": 2,
+    "w": 438,
+    "h": 575
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 438,
+    "h": 575
+   },
+   "sourceSize": {
+    "w": 438,
+    "h": 575
+   }
+  },
+  "mascotWin_14": {
+   "frame": {
+    "x": 882,
+    "y": 2,
+    "w": 438,
+    "h": 575
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 438,
+    "h": 575
+   },
+   "sourceSize": {
+    "w": 438,
+    "h": 575
+   }
+  },
+  "mascotWin_15": {
+   "frame": {
+    "x": 1322,
+    "y": 2,
+    "w": 438,
+    "h": 575
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 438,
+    "h": 575
+   },
+   "sourceSize": {
+    "w": 438,
+    "h": 575
+   }
+  }
+ },
+ "meta": {
+  "app": "art/tools/mascot_anim.py",
+  "image": "mascotWin2.webp",
+  "format": "RGBA8888",
+  "size": {
+   "w": 1762,
+   "h": 579
+  },
+  "scale": "1",
+  "fps": 12.0,
+  "margin": {
+   "left": 6,
+   "top": 0,
+   "right": 5,
+   "bottom": 0
+  }
+ }
+}

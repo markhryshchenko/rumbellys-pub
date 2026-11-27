@@ -9,7 +9,14 @@
 // - the switch is a short crossfade (Mascot.svelte);
 // - an event clip does not restart itself and is not cut by a less important one (queue below).
 
-export type MascotClip = 'idle' | 'fidget' | 'drink' | 'cheer' | 'fsTrigger' | 'bigWin';
+export type MascotClip =
+	| 'idle'
+	| 'fidget'
+	| 'win'
+	| 'drink'
+	| 'cheer'
+	| 'fsTrigger'
+	| 'bigWin';
 
 export type MascotClipInfo = {
 	prefix: string; // frame keys "<prefix>_00", "<prefix>_01", ...
@@ -70,6 +77,17 @@ export const MASCOT_CLIPS: Record<MascotClip, MascotClipInfo> = {
 	idle: { prefix: 'mascotIdle', count: 0, fps: 12, loop: true, priority: 0 },
 	// art/rumbelly_idle.mp4 frames 18-72, every 2nd
 	fidget: { prefix: 'mascotFidget', count: 28, fps: 12, loop: false, priority: 0, waitForEnd: true },
+	// a medium win (not small: those come every spin or two; big wins have their own clip);
+	// art/rumbelly_win.mp4 frames 12-34 every 2nd, then 18-12 backwards (MJ took 2 more seconds
+	// to lower the hand): a thumbs up with a grin, the hand goes straight back down
+	win: {
+		prefix: 'mascotWin',
+		count: 16,
+		fps: 12,
+		loop: false,
+		priority: 1,
+		margin: { left: 0.0078, top: 0, right: 0.0065, bottom: 0 },
+	},
 	// a mug lands; art/rumbelly_drink.mp4 frames 12-48 every 2nd: the gulp ends with the mug
 	// almost back in place (later the clip lowers it elsewhere and MJ drew foam drops)
 	drink: {
